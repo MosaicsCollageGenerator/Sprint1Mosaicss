@@ -1,10 +1,12 @@
-import com.mysql.jdbc.PreparedStatement;
+package repository;
+import model.Collage;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -109,7 +111,6 @@ public class CollageRepository {
              Statement stmt  = conn.createStatement())
               {
                   stmt.execute(sql);
-                  stmt.execute(sql2);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

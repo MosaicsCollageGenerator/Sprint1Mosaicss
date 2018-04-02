@@ -1,4 +1,8 @@
+package tests;
 import org.junit.Test;
+
+import model.User;
+import repository.UserRepository;
 
 import java.util.List;
 

@@ -1,4 +1,9 @@
+package tests;
 import org.junit.Test;
+
+import model.Collage;
+import repository.CollageRepository;
+import repository.UserRepository;
 
 import java.util.List;
 

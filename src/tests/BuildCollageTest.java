@@ -8,8 +8,10 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 import org.junit.Test;
+
+import service.Tester;
+
 import static org.junit.Assert.*;
-import Collage.Tester;
 public class BuildCollageTest {
 
 //	@BeforeClass

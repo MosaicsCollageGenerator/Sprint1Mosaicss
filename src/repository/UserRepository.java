@@ -1,4 +1,7 @@
-import com.mysql.jdbc.PreparedStatement;
+package repository;
+import java.sql.PreparedStatement;
+
+import model.User;
 
 import java.io.BufferedReader;
 import java.io.File;

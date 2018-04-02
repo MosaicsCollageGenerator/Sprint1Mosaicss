@@ -1,4 +1,4 @@
-package Collage;
+package service;
 
 import javafx.scene.transform.Affine;
 import javax.imageio.IIOException;
@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Arrays;
 import javax.imageio.*;
 import javax.swing.*;
-import static org.apache.http.protocol.HTTP.USER_AGENT;
 public class Tester {
 //    private static final String GOOGLE_SEARCH_API_KEY = "AIzaSyCQbxRMKMxuyaIVmosCa_k2sIv5BeavGFs";
 //    private static final String GOOGLE_CX = "007628912923159165220:9e6kozm2iea";  // custom search engine identifier
@@ -183,7 +182,7 @@ public class Tester {
                 con = (HttpURLConnection) requestURL.openConnection();
                 con.setRequestMethod("GET");
                 //add request header
-                con.setRequestProperty("User-Agent",  USER_AGENT);
+                con.setRequestProperty("User-Agent",  "user agent");
                 con.addRequestProperty("Cookie", "name1=Denim");
                 int responseCode = con.getResponseCode();
                 System.out.println("\nSending ‘GET’ request to URL : " + requestURL.toString());
@@ -194,7 +193,7 @@ public class Tester {
                         con = (HttpURLConnection) obj.openConnection();
                         con.setRequestMethod("GET");
                         //add request header
-                        con.setRequestProperty("User-Agent",  USER_AGENT);
+                        con.setRequestProperty("User-Agent",  "user agent");
                         con.addRequestProperty("Cookie", "name1=Denim");
                         responseCode = con.getResponseCode();
                     }
