@@ -2,85 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f0a10b8-b84b-4802-a895-f4757dc4a1b2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__classworlds_classworlds_1_1_alpha_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_27.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_3.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_4.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_0_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jtidy_jtidy_4aug2000r7_dev.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_0_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_0_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_0_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_james_apache_mime4j_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_doxia_doxia_sink_api_1_0_alpha_7.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_artifact_manager_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_core_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_error_diagnostics_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_model_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_monitor_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_api_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_descriptor_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_parameter_documenter_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_plugin_registry_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_profile_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_project_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_repository_metadata_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_maven_settings_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_reporting_maven_reporting_api_2_0_6.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_shared_maven_filtering_1_0_beta_3.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_file_1_0_beta_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_lightweight_1_0_beta_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_http_shared_1_0_beta_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_provider_api_1_0_beta_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_1_0_beta_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_common_1_0_beta_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_wagon_wagon_ssh_external_1_0_beta_2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_sql_maven_plugin_1_5.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_container_default_1_0_alpha_9_stable_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_interactivity_api_1_0_alpha_4.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_interpolation_1_12.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_plexus_plexus_utils_1_5_8.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_sonatype_plexus_plexus_build_api_0_0_4.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/MosaicssTest.sql" />
-      <change beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.project" afterPath="$PROJECT_DIR$/.project" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" />
-      <change beforePath="$PROJECT_DIR$/Mosaicss.iml" afterPath="$PROJECT_DIR$/Mosaicss.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Mosaics.sql" afterPath="$PROJECT_DIR$/src/main/resources/Mosaicss.sql" />
-      <change beforePath="$PROJECT_DIR$/src/model/Collage.java" afterPath="$PROJECT_DIR$/src/main/java/model/Collage.java" />
-      <change beforePath="$PROJECT_DIR$/src/model/User.java" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" />
-      <change beforePath="$PROJECT_DIR$/src/repository/CollageRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/CollageRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/repository/UserRepository.java" />
-      <change beforePath="$PROJECT_DIR$/src/service/Tester.java" afterPath="$PROJECT_DIR$/src/main/java/service/Tester.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/BuildCollageTest.java" afterPath="$PROJECT_DIR$/src/test/java/BuildCollageTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/CollageRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/CollageRepositoryTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/UserRepositoryTest.java" afterPath="$PROJECT_DIR$/src/test/java/UserRepositoryTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/step_definitions/access_step.rb" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/step_definitions/access_step.rb" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/step_definitions/collageGeneration.rb" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/step_definitions/collageGeneration.rb" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/step_definitions/collageHistory_step.rb" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/step_definitions/collageHistory_step.rb" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/step_definitions/exportFunctionality_step.rb" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/step_definitions/exportFunctionality_step.rb" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/step_definitions/imageRequirement.rb" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/step_definitions/imageRequirement.rb" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/step_definitions/mainPage_step.rb" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/step_definitions/mainPage_step.rb" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/support/access.feature" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/support/access.feature" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/support/collageGeneration.feature" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/support/collageGeneration.feature" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/support/collageHistory.feature" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/support/collageHistory.feature" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/support/exportFunctionality.feature" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/support/exportFunctionality.feature" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/support/imageRequirement.feature" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/support/imageRequirement.feature" />
-      <change beforePath="$PROJECT_DIR$/src/tests/csci310P2-blackbox-tests/features/support/mainPage.feature" afterPath="$PROJECT_DIR$/src/test/csci310P2-blackbox-tests/features/support/mainPage.feature" />
-      <change beforePath="$PROJECT_DIR$/target/m2e-wtp/web-resources/.gitignore" afterPath="" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/CorrectCollage/correctCollage.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/thirtyimages/image21.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/thirtyimages/image27.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/thirtyimages/image28.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/thirtyimages/image29.jpg" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/image1.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image1.jpg" />
+      <change beforePath="$PROJECT_DIR$/image10.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image11.jpg" />
+      <change beforePath="$PROJECT_DIR$/image11.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/image12.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image13.jpg" />
+      <change beforePath="$PROJECT_DIR$/image13.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image12.jpg" />
+      <change beforePath="$PROJECT_DIR$/image14.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image15.jpg" />
+      <change beforePath="$PROJECT_DIR$/image15.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image25.jpg" />
+      <change beforePath="$PROJECT_DIR$/image16.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image14.jpg" />
+      <change beforePath="$PROJECT_DIR$/image17.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image18.jpg" />
+      <change beforePath="$PROJECT_DIR$/image18.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image17.jpg" />
+      <change beforePath="$PROJECT_DIR$/image19.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image16.jpg" />
+      <change beforePath="$PROJECT_DIR$/image2.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image2.jpg" />
+      <change beforePath="$PROJECT_DIR$/image20.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image22.jpg" />
+      <change beforePath="$PROJECT_DIR$/image21.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image24.jpg" />
+      <change beforePath="$PROJECT_DIR$/image22.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/image23.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image9.jpg" />
+      <change beforePath="$PROJECT_DIR$/image24.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image23.jpg" />
+      <change beforePath="$PROJECT_DIR$/image25.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image19.jpg" />
+      <change beforePath="$PROJECT_DIR$/image26.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/image27.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image26.jpg" />
+      <change beforePath="$PROJECT_DIR$/image28.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image20.jpg" />
+      <change beforePath="$PROJECT_DIR$/image29.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image30.jpg" />
+      <change beforePath="$PROJECT_DIR$/image3.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image3.jpg" />
+      <change beforePath="$PROJECT_DIR$/image30.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/image4.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image4.jpg" />
+      <change beforePath="$PROJECT_DIR$/image5.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image5.jpg" />
+      <change beforePath="$PROJECT_DIR$/image6.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image6.jpg" />
+      <change beforePath="$PROJECT_DIR$/image7.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image8.jpg" />
+      <change beforePath="$PROJECT_DIR$/image8.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image7.jpg" />
+      <change beforePath="$PROJECT_DIR$/image9.jpg" afterPath="$PROJECT_DIR$/thirtyimages/image10.jpg" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/Tester.java" afterPath="$PROJECT_DIR$/src/main/java/service/Tester.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,44 +50,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserRepositoryTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/UserRepositoryTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="31" column="4" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/repository/UserRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-              <folding>
-                <element signature="e#351#352#0" expanded="true" />
-                <element signature="e#432#433#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BuildCollageTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BuildCollageTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/BuildCollageTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="36" column="79" lean-forward="false" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="79" />
+            <state relative-caret-position="330">
+              <caret line="34" column="17" lean-forward="true" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tester.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Tester.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/service/Tester.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="199" column="22" lean-forward="true" selection-start-line="199" selection-start-column="22" selection-end-line="199" selection-end-column="22" />
+            <state relative-caret-position="545">
+              <caret line="54" column="10" lean-forward="false" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -140,6 +75,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>&quot;user age</find>
+      <find>getimagest</find>
+      <find>save</find>
+      <find>correc</find>
+      <find>getimages</find>
+      <find>correct</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,6 +100,7 @@
         <option value="$PROJECT_DIR$/src/Mosaics.sql" />
         <option value="$PROJECT_DIR$/src/main/java/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/test/java/BuildCollageTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/Tester.java" />
       </list>
     </option>
   </component>
@@ -196,62 +137,6 @@
               <item name="Sprint1Mosaicss" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Mosaicss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sprint1Mosaicss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mosaicss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sprint1Mosaicss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mosaicss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sprint1Mosaicss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mosaicss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sprint1Mosaicss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mosaicss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sprint1Mosaicss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mosaicss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sprint1Mosaicss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mosaicss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sprint1Mosaicss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Mosaicss" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sprint1Mosaicss" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -268,9 +153,13 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/CorrectCollage" />
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/CorrectCollage" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/thirtyimages" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
@@ -286,7 +175,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BuildCollageTest">
+  <component name="RunManager" selected="JUnit.BuildCollageTest.test">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -321,6 +210,31 @@
       <option name="MAIN_CLASS_NAME" value="test.java.BuildCollageTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="BuildCollageTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Mosaicss" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.java" />
+      <option name="MAIN_CLASS_NAME" value="test.java.BuildCollageTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -467,18 +381,20 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.BuildCollageTest" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.CollageRepositoryTest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest.test_initialUserExistsAsTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.BuildCollageTest.test" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.BuildCollageTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest.test_initialUserExistsAsTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CollageRepositoryTest" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.BuildCollageTest.test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.BuildCollageTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest.test_initialUserExistsAsTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.UserRepositoryTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CollageRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -512,20 +428,26 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BuildCollageTest - 2018.04.02 at 14h 50m 01s.xml">
-      <configuration name="BuildCollageTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BuildCollageTest - 2018.04.02 at 15h 13m 58s.xml">
       <configuration name="BuildCollageTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CollageRepositoryTest - 2018.04.02 at 14h 51m 06s.xml">
-      <configuration name="CollageRepositoryTest" configurationId="JUnit" />
+    <history-entry file="BuildCollageTest_test - 2018.04.02 at 15h 26m 16s.xml">
+      <configuration name="BuildCollageTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRepositoryTest - 2018.04.02 at 15h 00m 12s.xml">
-      <configuration name="UserRepositoryTest" configurationId="JUnit" />
+    <history-entry file="BuildCollageTest_test - 2018.04.02 at 15h 29m 16s.xml">
+      <configuration name="BuildCollageTest.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserRepositoryTest - 2018.04.02 at 15h 02m 14s.xml">
-      <configuration name="UserRepositoryTest" configurationId="JUnit" />
+    <history-entry file="BuildCollageTest_test - 2018.04.02 at 15h 29m 24s.xml">
+      <configuration name="BuildCollageTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BuildCollageTest_test - 2018.04.02 at 15h 30m 28s.xml">
+      <configuration name="BuildCollageTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BuildCollageTest_test - 2018.04.02 at 15h 33m 21s.xml">
+      <configuration name="BuildCollageTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BuildCollageTest_test - 2018.04.02 at 15h 34m 21s.xml">
+      <configuration name="BuildCollageTest.test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="UserRepositoryTest_test_initialUserExistsAsTest - 2018.04.02 at 15h 03m 19s.xml">
       <configuration name="UserRepositoryTest.test_initialUserExistsAsTest" configurationId="JUnit" />
@@ -539,7 +461,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -550,8 +471,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12088698" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -575,7 +496,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -650,18 +571,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/BuildCollageTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="36" column="79" lean-forward="false" selection-start-line="36" selection-start-column="65" selection-end-line="36" selection-end-column="79" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/correctCollage.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CorrectCollage/correctCollage.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/Tester.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="199" column="22" lean-forward="true" selection-start-line="199" selection-start-column="22" selection-end-line="199" selection-end-column="22" />
+        <state relative-caret-position="545">
+          <caret line="54" column="10" lean-forward="false" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/BuildCollageTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="34" column="17" lean-forward="true" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
           <folding />
         </state>
       </provider>

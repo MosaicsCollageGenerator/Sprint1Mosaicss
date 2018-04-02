@@ -44,22 +44,17 @@ public class Tester {
         BufferedImage bi = new BufferedImage(f.getWidth(), f.getHeight(), BufferedImage.TYPE_INT_RGB);
         try {
         		Thread.sleep(2000);
-            BufferedImage image = new Robot().createScreenCapture(new Rectangle(f.getLocationOnScreen().x, f.getLocationOnScreen().y, f.getWidth(), f.getHeight()));
-            ImageIO.write(image, "png", new File("correctCollage.png"));
+                int w = f.getWidth();
+                int h = f.getHeight();
+                BufferedImage im = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+                Graphics2D g = im.createGraphics();
+                f.paint(g);
+                ImageIO.write(im, "png", new File("correctCollage.png"));
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (AWTException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
         		e.printStackTrace();
         }
-//        BufferedImage image = buildCollage(images);
-//        File outputfile = new File("collage.png");
-//        try {
-//            ImageIO.write(image, "png", outputfile);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         long endTime = System.currentTimeMillis();
         long duration = (endTime - startTime);
 //        System.out.println("Retrieved " + images.size() + " images");
@@ -197,7 +192,7 @@ public class Tester {
                             if (resultImage != null) {
                                 images.add(resultImage);
                                 //CALL FUNCTION TO SAVE PICTURES ONE BY ONE
-                                saveImageToFile(images.size(), resultImage);
+//                                saveImageToFile(images.size(), resultImage);
                                 if (images.size() == 30) {
                                     break;
                                 }
