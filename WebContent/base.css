@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+html,body {
+	height:100%;
+	width:100%;
+	margin:0;
+}
+
+body {
+	background-color: #b8b8b8;
+	display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+#titletext{
+/* 	padding: 70px 0;
+	display: table-cell;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto; */
+    text-align: center;
+    font-size: 50px;
+    
+}
+#content {
+	padding: 70px 0;
+	display: table-cell;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form {
+    width: 400px;
+    margin-left: 42%;
+}
+
+
+label{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+input{
+	border: 2px solid #777777;
+	font-size: 14px;
+}
+
+#searchbutton {
+	background-color: #777777;
+	color: white;
+	border: none;
+	text-align: center;
+	padding: 8px 16px;
+	font-size: 14px;
+}
+
+#login {
+	background-color: #777777;
+	color: white;
+	border: none;
+	text-align: center;
+	padding: 8px 16px;
+	font-size: 14px;
+}
+
+#build_collage {
+	background-color: #777777;
+	color: white;
+	border: none;
+	text-align: center;
+	padding: 8px 16px;
+	font-size: 14px;
+}
+
+#collage_history {
+	background-color: #777777;
+	color: white;
+	border: none;
+	text-align: center;
+	padding: 8px 16px;
+	font-size: 14px;
+}
+
+#export_button {
+	background-color: #777777;
+	color: white;
+	border: none;
+	text-align: center;
+	padding: 8px 16px;
+	font-size: 14px;	
+}
+
+#save_button {
+	background-color: #777777;
+	color: white;
+	border: none;
+	text-align: center;
+	padding: 8px 16px;
+	font-size: 14px;	
+}

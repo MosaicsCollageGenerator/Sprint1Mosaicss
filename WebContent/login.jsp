@@ -2,22 +2,26 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<head>
-
-		<title>Login</title>
-	</head>
-	<body>
-		<div>
-			<h1> Login </h1>
-			   <form>
-					<div class="field-wrap"> 
-						<input class="input" placeholder="Username" type = "text" name = "username" /><br>
-						<input class="input" placeholder="Password" type = "password" name = "password"/><br>
-						<input id="button" class="w3-button w3-red cancel" type = "submit" name = "submit" value = "Submit" disabled="disabled">
-					</div>
-				</form>		
-		</div>
-	
-
-	</body>
-</html>
+    <head>
+        <title>Mosaics Login</title>
+        <link rel="stylesheet" type="text/css" href="base.css?v=2">
+    </head>
+    <body>
+        <div id="content">
+            <h1 id="titletext">Mosaics Login </h1>
+               <form id="loginform">
+                    <div class="field-wrap"> 
+                        <label>Username</label>
+                        <input class="input" placeholder="Enter username" type="text" name="username" align="center" /><br>
+                        <label>Password</label>
+                        <input class="input" placeholder="Enter password" type="password" name="password"/><br>
+                        <span>
+                            <input id="login" type="button" name="submit" value=Login onclick="location.href='options.jsp'">
+                        </span>
+                        
+                    </div>
+                </form>       
+        </div>
+    
+    </body>
+</html></html>
