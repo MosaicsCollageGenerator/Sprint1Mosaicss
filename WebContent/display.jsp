@@ -6,37 +6,54 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MOSAICS</title>
         <link rel="stylesheet" type="text/css" href="base.css?v=1">
+        <link rel="stylesheet" type="text/css" href="display.css?v=1">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     </head>
     <body>
-        <div id="content">
-            <h1 id="titletext">Collage for topic _____</h1>
-            <table>
-                <tr>
-                    <td width="1100" align="right">
-                        <article>
-                            <img class="big" width="800" height="600" src="scrum2.jpg" alt="Primary Collage"><br><br>
-                        </article>
-                    </td>
-                    <td>
-                        <aside id="sidebar" width="200" align="center">
-                            <label>Export as:</label><br />
-                            <select name="exportvalue">
-                                  <option value=".png">.png</option>
-                                  <option value=".pdf">.pdf</option>
-                            </select><br/><br/>
-                            <button type = "button" id="export_button">Export</button>
-                            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-                            <button type = "button" id="save_button">Save to Gallery</button>
-                        </aside>
-                    </td>
-                </tr>
-            </table>
+        <div id="container">
+        		
+        		<!--Title -->
+        		<div id="title">
+            		<h1 id="display-title">Collage for topic <%=(String)session.getAttribute("topic") %> </h1>
+            	</div>
+            	
+            <!--Collage Display -->
+            	<div id="collage-display">
+            	
+            		<img id="example-image" src="logo.png">
+   
+            	</div>
+            	
+            	<table> 
+            		<tr>
+		            <!--Export Button -->
+		            	<div id="export"> 
+		            <label>Export as:</label><br />
+		            <select name="exportvalue">
+		                  <option value=".png">.png</option>
+		                  <option value=".pdf">.pdf</option>
+		            </select><br/><br/>
+		            <button type = "button" id="export_button">Export</button>
+		            </div>
+		        </tr> 
+		        <tr>   
+		            <!--Save to Gallery Button -->
+		            <div id="save">
+		            <button type = "button" id="save_button">Save to Gallery</button>
+					</div>
+				</tr>
+			</table>
+			
+			<!--Build Another Collage -->
+			<div id="Build Another Collage">
+			<button type = "button" id="searchbutton" onclick="location.href='index.jsp'">Build Another Collage</button>
+            </div>
             
+            <!-- Gallery -->
             <footer align="center">
-                <button type = "button" id="searchbutton" onclick="location.href='index.jsp'">Build Another Collage</button>
-                <br /><br />
+                
                 <label>Gallery:</label><br />
-                <img class="small" src="img_8173.jpeg" width="200" height="150"> <img class="small" src="Image uploaded from iOS (1).jpg" width="200" height="150">
+                
                 
             </footer> 
         </div>

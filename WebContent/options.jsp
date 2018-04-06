@@ -6,19 +6,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MOSAICS</title>
         <link rel="stylesheet" type="text/css" href="base.css?v=1">
+        <link rel="stylesheet" type="text/css" href="options.css?v=1">
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     </head>
     <body>
-        <div id="content">
-        <h1 id="titletext">MOSAICS Options</h1>
-            <form id = "optionform">
-            
-                <!--Build Collage button-->
-                <button type="button" id="build_collage" onclick="location.href='index.jsp'">Build Collage</button>
-                
-                <!--See Collage History button-->
-                <button type="button" id="collage_history" onclick="location.href='display.jsp'">See Collage History</button><br />
-                 
-            </form>
-        </div>
+    		<div id="container">
+    			<div id="options-wrap" class="wrapper">
+		        <div id="content">
+			        <h1 id="options-title">Options</h1>
+		            <form id="optionform">
+		            		<div id="first-button">
+		                <!--Build Collage button-->
+		                <button type="button" id="build_collage" onclick="location.href='index.jsp'">Build Collage</button>
+		                </div>
+		                
+		                <div id="second-button">
+		                <!--See Collage History button-->
+		                <button type="button" id="collage_history" onclick="location.href='display.jsp'">See Collage History</button><br/>
+		                 </div>
+		            </form>
+		        </div>
+		    </div>
+	     </div>
     </body>
 </html>

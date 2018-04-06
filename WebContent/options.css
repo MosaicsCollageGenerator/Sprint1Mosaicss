@@ -1,0 +1,14 @@
+#options-wrap {
+	width: 30%;
+	height: 30%;
+}
+
+#first-button {
+	display:inline-block;
+	margin-right: 10px;
+}
+
+#second-button {
+	display:inline-block;
+}
+

@@ -1,1 +1,45 @@
+#login-wrap {
+	width: 30%;
+	height: 60%;
+}
+
+/* #login-title {
+	text-align: center;
+} */
+
+#login-button {
+ 	background-color: #A1A8AC;
+    color: #F1F5F7; 
+    border: 1px solid #a1a1a1;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#login-button:hover {
+    opacity: 0.8;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#logo {
+	text-align: center;
+	margin: 10px;
+}
+
+img {
+	width: 120px;
+	height: 120px;
+}
+
+
 

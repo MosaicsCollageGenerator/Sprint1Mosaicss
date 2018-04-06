@@ -1,1 +1,13 @@
 
+#index-wrap {
+	width: 30%;
+	height: 65%;
+}
+
+#build-button {
+	margin-top: 20px;
+}
+
+.label-divs {
+	margin-top: 10px;
+}
