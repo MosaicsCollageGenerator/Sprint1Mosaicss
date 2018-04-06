@@ -24,38 +24,38 @@
    
             	</div>
             	
-            	<table> 
+            	<table id="buttons-table"> 
             		<tr>
-		            <!--Export Button -->
-		            	<div id="export"> 
-		            <label>Export as:</label><br />
-		            <select name="exportvalue">
-		                  <option value=".png">.png</option>
-		                  <option value=".pdf">.pdf</option>
-		            </select><br/><br/>
-		            <button type = "button" id="export_button">Export</button>
-		            </div>
+            			<td>
+			            <!--Export Button -->
+			            <label>Export as:</label><br />
+			            <select name="exportvalue">
+			                  <option value=".png">.png</option>
+			                  <option value=".pdf">.pdf</option>
+			            </select><br/><br/>
+			            <button id="export_button">Export</button>
+			         </td>
 		        </tr> 
-		        <tr>   
+		        <tr>  
+		        		<td>
 		            <!--Save to Gallery Button -->
-		            <div id="save">
-		            <button type = "button" id="save_button">Save to Gallery</button>
-					</div>
+		            <button id="save_button">Save to Gallery</button>
+		            </td>
 				</tr>
 			</table>
 			
 			<!--Build Another Collage -->
 			<div id="Build Another Collage">
-			<button type = "button" id="searchbutton" onclick="location.href='index.jsp'">Build Another Collage</button>
+			<button id="searchbutton" onclick="location.href='index.jsp'">Build Another Collage</button>
             </div>
             
             <!-- Gallery -->
-            <footer align="center">
+            <div id="footer">
                 
                 <label>Gallery:</label><br />
                 
                 
-            </footer> 
+            </div>
         </div>
     </body>
 </html>

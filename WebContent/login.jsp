@@ -24,9 +24,10 @@
 	                        <label for="password"><b>Password</b></label>
 	                        <input class="input" placeholder="Enter password" type="password" name="password"/><br>
 	                        
-	                        <input id="login-button" type="button" name="submit" value=Login onclick="location.href='options.jsp'">	                        
+	                        <input id="login-button" type="button" name="submit" value=Login onclick="location.href='options.jsp'">                 
 	                    </div>
-	                </form>   
+	                </form>  
+					<button>Register</button>
 	         </div>    
 	    </div>
     
