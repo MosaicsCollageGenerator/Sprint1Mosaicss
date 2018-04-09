@@ -29,13 +29,13 @@ public class Tester {
     public static void doWork() {
     		long startTime = System.currentTimeMillis();
         
-        //List<BufferedImage> images = getImages("cats");
+        List<BufferedImage> images = getImages("yellow");
         //GETS IMAGES FOR TESTING PURPOSES
-        List<BufferedImage> images = getImagesTest();
+        //List<BufferedImage> images = getImagesTest();
         
         System.out.println("IMAGES SIZE " + images.size());
         BufferedImage i = buildCollage(images); //COMMENTED OUT DURING TESTING
-           // i = resizeImage(300, 300, i); //DID THIS DURING IMPLEMENTATION
+           i = resizeImage(300, 300, i); //DID THIS DURING IMPLEMENTATION
         
         //COMMENTED REST OF MAIN TO TEST
         TexturedText t = new TexturedText(i);
@@ -80,7 +80,7 @@ public class Tester {
                     RenderingHints.VALUE_ANTIALIAS_ON);
             Font font = new Font("Impact", Font.PLAIN, 200);
             g2.setFont(font);
-            String s = "supercalifragilisticexpialidocIOUS";
+            String s = "super";
             Dimension d = getSize();
             float x = 20, y = 200;
             BufferedImage bi = getTextureImage();
