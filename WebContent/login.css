@@ -1,6 +1,6 @@
 #login-wrap {
 	width: 30%;
-	height: 60%;
+	height: 65%;
 }
 
 /* #login-title {
@@ -13,9 +13,13 @@
     border: 1px solid #a1a1a1;
     padding: 14px 20px;
     margin: 8px 0;
-    border: none;
+    border: 3px solid #a1a1a1;
     cursor: pointer;
     width: 100%;
+}
+
+button {
+	width: 100%
 }
 
 #login-button:hover {
