@@ -40,4 +40,29 @@ public class CollageBuilderTest {
         }
     }
     
+    @Test
+    public void test_Filter_CreatesGreyscaleImage() {
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow")
+        		.filter(CollageBuilder.Filter.GRAYSCALE).build();
+        BufferedImage collage = collageBuilder.build();
+
+        int width = collage.getWidth();
+        int height = collage.getHeight();
+
+        int pixel,red, green, blue;
+
+        for (int i = 0; i < width; i++)
+            for (int j = 0; j < height; j++) {
+                //scan through each pixel
+                pixel = collage.getRGB(i, j);
+                red = (pixel >> 16) & 0xff;
+                green = (pixel >> 8) & 0xff;
+                blue = (pixel) & 0xff;
+
+                //check if R=G=B
+                assertEquals(red, green);
+                assertEquals(green, blue);
+            }
+    }
+    
 }
