@@ -31,10 +31,13 @@ public class CollageBuilderTest {
         CollageBuilder collageBuilder =  new CollageBuilder.Builder("cat", "meow").testing(true).build();
         BufferedImage collage = collageBuilder.build();
         BufferedImage correctCollage = ImageIO.read(new File("CorrectCollage/correctCollage.png"));
-        byte[]  byteTestArray = ((DataBufferByte) correctCollage.getData().getDataBuffer()).getData();
-        byte[]  byteCollageArray = ((DataBufferByte) collage.getData().getDataBuffer()).getData();
-
-        assertArrayEquals(byteTestArray, byteCollageArray);
+        assertEquals(correctCollage.getHeight(), collage.getHeight());
+        assertEquals(correctCollage.getWidth(), collage.getWidth());
+        for (int x = 0; x < collage.getWidth(); x++) {
+            for (int y = 0; y < collage.getHeight(); y++) {
+                assertEquals(correctCollage.getRGB(x, y), collage.getRGB(x, y));
+            }
+        }
     }
-
+    
 }
