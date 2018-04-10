@@ -10,8 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     </head>
     <body>
-        <div id="container">
-        		
+        <div id="container" style = "min-width: 1000px;">
         		<!--Title -->
         		<div id="title">
             		<h1 id="display-title">Collage for topic <%=(String)session.getAttribute("topic") %> </h1>
@@ -45,8 +44,8 @@
 			</table>
 			
 			<!--Build Another Collage -->
-			<div id="Build Another Collage">
-			<button id="searchbutton" onclick="location.href='index.jsp'">Build Another Collage</button>
+			<div id="build-another-collage">
+				<button id="build-button" onclick="location.href='index.jsp'">Build Another Collage</button>
             </div>
             
             <!-- Gallery -->

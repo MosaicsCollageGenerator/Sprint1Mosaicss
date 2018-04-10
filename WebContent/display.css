@@ -1,3 +1,8 @@
+ 
+#container {
+	display: flex-inline;
+}
+
 #title {
 	margin: auto;
 	position: absolute;
@@ -21,10 +26,27 @@
     transform: translate(-50%, -50%);
 }
 
-#footer {
-   position:absolute;
-   bottom:0;
-   width:50%;
-   height:60px;
+#build-another-collage {
+	position: absolute;
+    top: 90%;
+    left: 50%;
+	transform: translate(-50%, -50%);
 }
 
+#footer {
+	position:absolute;
+    bottom:0;
+    width:50%;
+    height:60px;
+}
+
+table {
+    margin-right: 50px;
+    margin-top: 130px;
+    float: right;
+}
+ 
+ body, html {
+ 	min-width: 600px;
+ 	min-height: 400px;
+ }

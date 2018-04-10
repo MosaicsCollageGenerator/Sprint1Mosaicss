@@ -11,7 +11,6 @@
     <body>
         <div id="container">
         		<div id="login-wrap" class="wrapper">
-<!-- 	            <h1 id="login-title">Mosaics Login </h1> -->
 	               <form id="login-form">
 	               		<div id="logo">
 	               			<img src="logo.png">
@@ -27,7 +26,7 @@
 	                        <input id="login-button" type="button" name="submit" value=Login onclick="location.href='options.jsp'">                 
 	                    </div>
 	                </form>  
-					<button>Register</button>
+					<button onclick="location.href='register.jsp'">Register</button>
 	         </div>    
 	    </div>
     
