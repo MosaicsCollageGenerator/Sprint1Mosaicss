@@ -19,7 +19,7 @@
             <!--Collage Display -->
             	<div id="collage-display">
             	
-            		<img id="example-image" src="logo.png">
+            		<img id="example-image" src="data:image/png;base64,<%=collage%>">
    
             	</div>
             	
