@@ -19,7 +19,7 @@
             <!--Collage Display -->
             	<div id="collage-display">
             	
-            		<img id="example-image" src="data:image/png;base64,<%-- <%=collage%> --%>">
+            		<img id="example-image" src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>">
    
             	</div>
             	
