@@ -24,7 +24,7 @@ public class CollageBuilder {
     private final boolean testing;
 
     public enum Filter {
-        None, GRAYSCALE, SEPIA, BW
+        None, SEPIA, BW, GRAYSCALE
     }
 
     public static class Builder {
@@ -39,9 +39,15 @@ public class CollageBuilder {
         private boolean border = false;
         private boolean testing = false;
 
-        public Builder(String topic, String shape) {
+        public Builder(String topic, String shape, int height, int width, Filter filter, boolean rotation, boolean border, boolean testing) {
             this.topic = topic;
             this.shape = shape;
+            this.height = height;
+            this.width = width;
+            this.filter = filter;
+            this.rotation = rotation;
+            this.border = border;
+            this.testing = testing;
         }
 
         public Builder height(int height) {
@@ -147,7 +153,7 @@ public class CollageBuilder {
         return images;
     }
 
-    private BufferedImage buildSingleCollage(List<BufferedImage> images, int height, int width) {
+    private BufferedImage buildSingleCollage(List<BufferedImage> images, int height, int width,String shape) {
         // formatImages is a helper function used to format images (resize, add border)
         for (int i = 0; i < images.size(); ++i) {
             images.set(i, resizeCollage(images.get(i), 50, 50));
@@ -166,17 +172,28 @@ public class CollageBuilder {
         int currX = 0;
         int currY = 0;
         int i = 0;
+        
+        //taking the length to determine how long the collage should be
+        int length = shape.length()/3;
+        width *=length;
+        
         while(currY < width) {
             if (i == 30) {
                 i = 0;
             }
-            if (currX < height && currY < width) {
+            //System.out.println("IN HERE");
+            //System.out.println("height is "+ height);
+            //System.out.println("width is " + width);
+            
+            if (currX < width && currY < height) {
+            		//System.out.println("SIZE OF IMAGES: "+images.size());
+            		//System.out.println("I IS: "+i);
                 g2.drawImage(images.get(i), null, currX, currY);
             }
 
             currX += 25;
             // if going out of bounds to the right
-            if (currX > height) {
+            if (currX > width) {
                 // shift down
                 currX = 0;
                 currY += 25;
@@ -189,24 +206,38 @@ public class CollageBuilder {
 
     // TO-DO
     private BufferedImage buildShapedCollage(BufferedImage collage, String shape) {
+    		
         TexturedText t = new TexturedText(collage, shape);
-        JFrame f = t.getFrame();
-        f.setVisible(true);
-        BufferedImage bi = null;
-        try {
-            bi = ScreenImage.createImage(f);
-            Thread.sleep(2000);
-        } catch (AWTException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        BufferedImage bi = new BufferedImage(collage.getWidth(),collage.getHeight(),BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics = bi.createGraphics();
+        t.paint(graphics);
+        graphics.dispose();
+        
+//        JFrame f = t.getFrame();
+//        f.setVisible(true);
+//        BufferedImage bi = null;
+//        try {
+//            bi = ScreenImage.createImage(f);
+//            Thread.sleep(2000);
+//        } catch (AWTException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         try {
-            ImageIO.write(bi, "png", new File("correctCollage.png"));
+        	System.out.println("I AM PRINTING PHOTO");
+//          JFrame frame = new JFrame();
+//          frame.getContentPane().setLayout(new FlowLayout());
+//          frame.getContentPane().add(new JLabel(new ImageIcon(bi)));
+//          frame.pack();
+//          frame.setVisible(true);
+            ImageIO.write(bi, "png", new File("abc.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
+//        resizeCollage(bi, width, height);
         return bi;
     }
     // TO-DO
@@ -305,13 +336,21 @@ public class CollageBuilder {
 
         // Rotate images
         images = rotateImages(images, rotation);
-
+        
+		
         // Create a single collage
-        BufferedImage collage = buildSingleCollage(images, height, width);
+        BufferedImage collage = buildSingleCollage(images, height, width,shape);
 
         // Add shape to collage
         collage = buildShapedCollage(collage, shape);
-
+        
+        /////////////////////////////////
+//        JFrame frame = new JFrame();
+//        frame.getContentPane().setLayout(new FlowLayout());
+//        frame.getContentPane().add(new JLabel(new ImageIcon(collage)));
+//        frame.pack();
+//        frame.setVisible(true);
+        ///////////////////////////////
         // Apply filter
         collage = applyFilterToCollage(collage, filter);
 
@@ -333,8 +372,8 @@ public class CollageBuilder {
 
         public TexturedText(BufferedImage bi, String shape) {
             this.bi = bi;
-            this.height = 800;
-            this.width = 250;
+            this.height = bi.getHeight();
+            this.width = bi.getWidth();
             this.shape = shape;
         }
         public void paint(Graphics g) {
@@ -350,6 +389,8 @@ public class CollageBuilder {
             TexturePaint tp = new TexturePaint(bi, r);
             g2.setPaint(tp);
             g2.drawString(shape, x, y);
+            
+
         }
         private BufferedImage getTextureImage() {
             // Create the test image.

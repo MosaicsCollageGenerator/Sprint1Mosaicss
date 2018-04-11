@@ -1,11 +1,10 @@
 package main.java.servlet;
 
+import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Base64;
-import java.util.Iterator;
-import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -14,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import main.java.builder.CollageBuilder;
 
@@ -28,19 +30,32 @@ public class BuildServlet extends HttpServlet {
 		String topic = request.getParameter("search_text");
 		System.out.println(request.getParameter("heightvalue"));
 		String shape = request.getParameter("shape_text");
-//		int height = Integer.parseInt(request.getParameter("height_value"));
-//		int width = Integer.parseInt(request.getParameter("width_value"));
-//		int filter = Integer.parseInt(request.getParameter("filter"));
+		int height = Integer.parseInt(request.getParameter("heightvalue"));
+		int width = Integer.parseInt(request.getParameter("widthvalue"));
+		CollageBuilder.Filter filter; 
+		int filterInt = Integer.parseInt(request.getParameter("filter"));
+		if (filterInt == 0 ) {
+			filter = CollageBuilder.Filter.None;
+		}else if(filterInt == 1) {
+			filter = CollageBuilder.Filter.SEPIA;
+		}else if(filterInt == 2) {
+			filter = CollageBuilder.Filter.BW;
+		}else {
+			filter = CollageBuilder.Filter.GRAYSCALE;
+		}
+		
+		
+		
 //		Boolean rotation = Boolean.parseBoolean(request.getParameter("rotation"));
 //		Boolean border = Boolean.parseBoolean(request.getParameter("border"));
-//		
-		int height = 1;
-		int width = 1;
-		int filter = 1;
+		Boolean testing = false;
+		//int filter = 1;
 		Boolean rotation = true;
 		Boolean border = true;
-		CollageBuilder collageBuilder = new CollageBuilder.Builder(topic, shape).build();
+		CollageBuilder collageBuilder = new CollageBuilder.Builder(topic, shape,height,width,filter,rotation,border,testing).build();
+		
 		BufferedImage image = collageBuilder.build();
+
 //		BufferedImage image = CollageBuilder.build(topic, shape, height, width, filter, rotation, border);
 		System.out.println(image);
 		String imageString = convertBufferedImageToBase64(image);
