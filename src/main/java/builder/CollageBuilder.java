@@ -117,7 +117,25 @@ public class CollageBuilder {
     // TO-DO
     private List<BufferedImage> applyBordersToImages(List<BufferedImage> images, boolean border) {
         if (border) {
-
+        		for(int i=0; i<images.size(); i++)
+        		{
+        	        Graphics2D g = images.get(i).createGraphics();
+        	        int height = images.get(i).getHeight();
+        	        int width = images.get(i).getWidth();
+        	        int borderControl = 1;
+        	        //set border color
+        	        g.setColor(Color.RED);
+        	        //set border thickness
+        	        g.setStroke(new BasicStroke(4));
+        	        //to fix issue for even numbers
+//        	        if(borderWidth % 2 == 0){
+//        	            borderControl = 0;
+//        	        }
+        	        g.drawLine(0, 0, 0, height);
+        	        g.drawLine(0, 0, width, 0);
+        	        g.drawLine(0, height - borderControl, width, height - borderControl);
+        	        g.drawLine(width - borderControl, height - borderControl, width - borderControl, 0);
+        		}
         }
         return images;
     }
@@ -207,13 +225,56 @@ public class CollageBuilder {
         if (filter.equals(Filter.SEPIA)) {
         		for(int y=0; y<height; y++) {
         			for(int x=0; x<width; x++) {
+        				int p = collage.getRGB(x,y);
+        				int a = (p>>24)&0xff;
+        				int r = (p>>16)&0xff;
+        				int g = (p>>8)&0xff;
+        				int b = p&0xff;
+        				int tr = (int)(0.393*r + 0.769*g + 0.189*b);
+        				int tg = (int)(0.349*r + 0.686*g + 0.168*b);
+        				int tb = (int)(0.272*r + 0.534*g + 0.131*b);
+        				if(tr > 255){
+        					r = 255;
+        				}else{
+        					r = tr;
+        				}
+        				if(tg > 255){
+        					g = 255;
+        				}else{
+        					g = tg;
+        				}
+        				if(tb > 255){
+        					b = 255;
+        				}else{
+        					b = tb;
+        				}
         				
+        				p = (a<<24) | (r<<16) | (g<<8) | b;
+        				collage.setRGB(x, y, p);
         			}
         		}
         } else if (filter.equals(Filter.BW)) {
-
+        		
+        		
         } else if (filter.equals(Filter.GRAYSCALE)) {
+            for(int y = 0; y < height; y++){
+              for(int x = 0; x < width; x++){
+                int p = collage.getRGB(x,y);
 
+                int a = (p>>24)&0xff;
+                int r = (p>>16)&0xff;
+                int g = (p>>8)&0xff;
+                int b = p&0xff;
+
+                //calculate average
+                int avg = (r+g+b)/3;
+
+                //replace RGB value with avg
+                p = (a<<24) | (avg<<16) | (avg<<8) | avg;
+
+                collage.setRGB(x, y, p);
+              }
+           }
         }
         return collage;
     }
