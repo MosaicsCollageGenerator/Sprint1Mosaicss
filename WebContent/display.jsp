@@ -13,12 +13,12 @@
         <div id="container">
         		<!--Title -->
         		<div id="title">
-            		<h1 id="display-title">Collage for topic<%--  <%=(String)session.getAttribute("topic") %> --%> </h1>        		            	
+            		<h1 id="display-title">Collage for topic  <%=(String)session.getAttribute("topic") %> </h1>        		            	
             	</div>
             <!--Collage Display -->
             	<div id="collage-display">
             	
-            		<img id="example-image" src="logo.png">       	
+            		<img id="example-image" src="data:image/png;base64,<%=(String)session.getAttribute("collage") %> ">
    
             	</div>
             	<table id="buttons-table"> 

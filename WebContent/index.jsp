@@ -13,18 +13,18 @@
     		<div id="container">
 	        <div id="index-wrap" class="wrapper">
 	        <h1 id="titletext">Collage Builder</h1>
-	            <form id = "searchform">
+	            <form id = "searchform" method="GET" action="build">
 	            
 	                <!--Topic text input-->
 	                <div class="label-divs">
 	                <label>Topic</label>
-	                <input type="text" id="search_text" placeholder="Enter topic"> <br />
+	                <input type="text" id="search_text" name="search_text" placeholder="Enter topic"> <br />
 	                </div>
 	                
 	                <div class="label-divs">
 	                <!--Shape text input  -->
 	                <label>Shape</label>
-	                <input type="text" id="shape_text" placeholder="Enter shape"> <br />
+	                <input type="text" id="shape_text" name="shape_text" placeholder="Enter shape"> <br />
 	                </div>
 	                
 	                <div class="label-divs">
@@ -62,19 +62,19 @@
 	                
 	                <!--Filter Radio buttons  -->
 	                <input type="radio" id="none"
-	                 name="filter" value="none">
+	                 name="filter" value="0" checked="checked">
 	                <label for="none">None</label>
 	            
 	                <input type="radio" id="sepia"
-	                 name="filter" value="sepia">
+	                 name="filter" value="1">
 	                <label for="sepia">Sepia</label>
 	            
 	                <input type="radio" id="bandw"
-	                 name="filter" value="bandw">
+	                 name="filter" value="2">
 	                <label for="bandw">Black & White</label>
 	                
 	                <input type="radio" id="grey"
-	                 name="filter" value="grey">
+	                 name="filter" value="3">
 	                <label for="grey">Grey</label> <br />
 	                </div>
 	                
@@ -86,11 +86,11 @@
 	                
 	                <div class="label-divs">
 	                <label>Rotation</label>
-	                <input type= "checkbox" id="border" name="border"/> <br />
+	                <input type= "checkbox" id="rotation" name="rotation"/> <br />
 	                </div>
 	                   
 	                <span>
-	                    <button type="button" id="build-button" onclick="location.href='display.jsp'">Build Collage</button>
+	                    <button type="submit" id="build-button" >Build Collage</button>
 	                </span>
 	            </form>
 	        </div>
