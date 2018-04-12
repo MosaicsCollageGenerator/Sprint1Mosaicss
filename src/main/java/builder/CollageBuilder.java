@@ -5,6 +5,7 @@ import main.java.service.ImageService;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +26,16 @@ public class CollageBuilder {
 
     public enum Filter {
         None, SEPIA, BW, GRAYSCALE
+    }
+    
+    public static void main(String[] args) {
+    		CollageBuilder builder = new CollageBuilder.Builder("dogs", "dogs", 800, 600, Filter.None, true, true, false).build();
+    		BufferedImage image = builder.build();
+    		try {
+	            ImageIO.write(image, "png", new File("rotatedcollage.png"));
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }	
     }
 
     public static class Builder {
@@ -123,19 +134,62 @@ public class CollageBuilder {
     // TO-DO
     private List<BufferedImage> applyBordersToImages(List<BufferedImage> images, boolean border) {
         if (border) {
-
+        		for(int i=0; i<images.size(); i++)
+        		{
+        	        Graphics2D g = images.get(i).createGraphics();
+        	        int height = images.get(i).getHeight();
+        	        int width = images.get(i).getWidth();
+        	        int borderControl = 1;
+        	        //set border color
+        	        g.setColor(Color.RED);
+        	        //set border thickness
+        	        g.setStroke(new BasicStroke(6));
+        	        //to fix issue for even numbers
+//        	        if(borderWidth % 2 == 0){
+//        	            borderControl = 0;
+//        	        }
+        	        g.drawLine(0, 0, 0, height);
+        	        g.drawLine(0, 0, width, 0);
+        	        g.drawLine(0, height - borderControl, width, height - borderControl);
+        	        g.drawLine(width - borderControl, height - borderControl, width - borderControl, 0);
+        		}
         }
         return images;
     }
     // TO-DO
-    private List<BufferedImage> rotateImages(List<BufferedImage> images, boolean rotation) {
+    public List<BufferedImage> rotateImages(List<BufferedImage> images, boolean rotation) {
         if (rotation) {
-
+        		for(int i=0; i<images.size(); i++)
+        		{
+        	        AffineTransform at = new AffineTransform();
+        	        // 4. translate it to the center of the component
+        	        at.translate(images.get(i).getWidth()/2, images.get(i).getHeight()/2);
+        	        // 3. do the actual rotation
+        	        at.rotate(Math.random()*Math.PI/4.0);
+        	        // 2. just a scale because this image is big
+        	        at.scale(0.5, 0.5);
+        	        // 1. translate the object so that you rotate it around the
+        	        //    center (easier :))
+        	        at.translate(-images.get(i).getWidth()/1.5, -images.get(i).getHeight()/1.5);
+        	        // draw the image
+        	        BufferedImage newImage = new BufferedImage(images.get(i).getWidth(), images.get(i).getHeight(), images.get(i).getType());
+        	        Graphics2D g = (Graphics2D) newImage.getGraphics();
+        	        Graphics2D g2d = (Graphics2D) g;
+        	        g2d.drawImage(images.get(i), at, null);
+        	        File outputfile = new File("rotated.png");
+//        	        try {
+//        	            ImageIO.write(newImage, "png", outputfile);
+//        	        } catch (IOException e) {
+//        	            e.printStackTrace();
+//        	        }
+        	        
+        	        images.set(i, newImage);
+        		}
         }
         return images;
     }
 
-    private BufferedImage buildSingleCollage(List<BufferedImage> images, int height, int width,String shape) {
+    public BufferedImage buildSingleCollage(List<BufferedImage> images, int height, int width,String shape) {
         // formatImages is a helper function used to format images (resize, add border)
         for (int i = 0; i < images.size(); ++i) {
             images.set(i, resizeCollage(images.get(i), 50, 50));
@@ -163,13 +217,13 @@ public class CollageBuilder {
             if (i == 30) {
                 i = 0;
             }
-            System.out.println("IN HERE");
-            System.out.println("height is "+ height);
-            System.out.println("width is " + width);
+            //System.out.println("IN HERE");
+            //System.out.println("height is "+ height);
+            //System.out.println("width is " + width);
             
             if (currX < width && currY < height) {
-            		System.out.println("SIZE OF IMAGES: "+images.size());
-            		System.out.println("I IS: "+i);
+            		//System.out.println("SIZE OF IMAGES: "+images.size());
+            		//System.out.println("I IS: "+i);
                 g2.drawImage(images.get(i), null, currX, currY);
             }
 
@@ -183,31 +237,48 @@ public class CollageBuilder {
             ++i;
         }
         g2.dispose();
+        try {
+            ImageIO.write(newImage, "png", new File("CAPY.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return newImage;
     }
 
     // TO-DO
     private BufferedImage buildShapedCollage(BufferedImage collage, String shape) {
+    		
         TexturedText t = new TexturedText(collage, shape);
-        JFrame f = t.getFrame();
-        f.setVisible(true);
-        BufferedImage bi = null;
-        try {
-            bi = ScreenImage.createImage(f);
-            Thread.sleep(2000);
-        } catch (AWTException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        BufferedImage bi = new BufferedImage(collage.getWidth(),collage.getHeight(),BufferedImage.TYPE_INT_RGB);
+        Graphics2D graphics = bi.createGraphics();
+        t.paint(graphics);
+        graphics.dispose();
+        
+//        JFrame f = t.getFrame();
+//        f.setVisible(true);
+//        BufferedImage bi = null;
+//        try {
+//            bi = ScreenImage.createImage(f);
+//            Thread.sleep(2000);
+//        } catch (AWTException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         try {
-            ImageIO.write(bi, "png", new File("correctCollage.png"));
+        	System.out.println("I AM PRINTING PHOTO");
+//          JFrame frame = new JFrame();
+//          frame.getContentPane().setLayout(new FlowLayout());
+//          frame.getContentPane().add(new JLabel(new ImageIcon(bi)));
+//          frame.pack();
+//          frame.setVisible(true);
+            ImageIO.write(bi, "png", new File("abc.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         
-
+//        resizeCollage(bi, width, height);
         return bi;
     }
     // TO-DO
@@ -223,16 +294,70 @@ public class CollageBuilder {
     private BufferedImage applyFilterToCollage(BufferedImage collage, Filter filter) {
     		int width = collage.getWidth();
     		int height = collage.getHeight();
+    		
+    		//apply Sepia Filter
         if (filter.equals(Filter.SEPIA)) {
         		for(int y=0; y<height; y++) {
         			for(int x=0; x<width; x++) {
+        				int p = collage.getRGB(x,y);
+        				int a = (p>>24)&0xff;
+        				int r = (p>>16)&0xff;
+        				int g = (p>>8)&0xff;
+        				int b = p&0xff;
+        				int tr = (int)(0.393*r + 0.769*g + 0.189*b);
+        				int tg = (int)(0.349*r + 0.686*g + 0.168*b);
+        				int tb = (int)(0.272*r + 0.534*g + 0.131*b);
+        				if(tr > 255){
+        					r = 255;
+        				}else{
+        					r = tr;
+        				}
+        				if(tg > 255){
+        					g = 255;
+        				}else{
+        					g = tg;
+        				}
+        				if(tb > 255){
+        					b = 255;
+        				}else{
+        					b = tb;
+        				}
         				
+        				p = (a<<24) | (r<<16) | (g<<8) | b;
+        				collage.setRGB(x, y, p);
         			}
         		}
-        } else if (filter.equals(Filter.BW)) {
+        } 
+        
+        //apply black and white filter
+        else if (filter.equals(Filter.BW)) {
+        		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_BINARY);
+            Graphics2D graphic = result.createGraphics();
+            graphic.drawImage(collage, 0, 0, Color.WHITE, null);
+            graphic.dispose();
+            collage = result;
+        } 
+        
+        //apply grayscale filter
+        else if (filter.equals(Filter.GRAYSCALE)) {
+            for(int y = 0; y < height; y++){
+              for(int x = 0; x < width; x++){
+                int p = collage.getRGB(x,y);
 
-        } else if (filter.equals(Filter.GRAYSCALE)) {
+                int a = (p>>24)&0xff;
+                int r = (p>>16)&0xff;
+                int g = (p>>8)&0xff;
+                int b = p&0xff;
 
+                //calculate average
+                int avg = (r+g+b)/3;
+
+                //replace RGB value with avg
+                p = (a<<24) | (avg<<16) | (avg<<8) | avg;
+
+                collage.setRGB(x, y, p);
+              }
+           }
         }
         return collage;
     }
@@ -272,11 +397,11 @@ public class CollageBuilder {
         collage = buildShapedCollage(collage, shape);
         
         /////////////////////////////////
-        JFrame frame = new JFrame();
-        frame.getContentPane().setLayout(new FlowLayout());
-        frame.getContentPane().add(new JLabel(new ImageIcon(collage)));
-        frame.pack();
-        frame.setVisible(true);
+//        JFrame frame = new JFrame();
+//        frame.getContentPane().setLayout(new FlowLayout());
+//        frame.getContentPane().add(new JLabel(new ImageIcon(collage)));
+//        frame.pack();
+//        frame.setVisible(true);
         ///////////////////////////////
         // Apply filter
         collage = applyFilterToCollage(collage, filter);
@@ -299,8 +424,8 @@ public class CollageBuilder {
 
         public TexturedText(BufferedImage bi, String shape) {
             this.bi = bi;
-            this.height = 800;
-            this.width = 250;
+            this.height = bi.getHeight();
+            this.width = bi.getWidth();
             this.shape = shape;
         }
         public void paint(Graphics g) {
@@ -392,7 +517,6 @@ class ScreenImage
 
         //  Paint a background for non-opaque components,
         //  otherwise the background will be black
-
         if (! component.isOpaque())
         {
             g2d.setColor( component.getBackground() );
