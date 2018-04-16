@@ -9,9 +9,24 @@
         <link rel="stylesheet" type="text/css" href="index.css?v=1">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
+        <script>
+        		function validateForms() {
+        			var topic = $("#search_text").val() ; 
+        			var shape = $("#shape_text").val();
+        			
+        			if(!topic) {
+        				console.log("Empty")
+        				return false;
+        			} 
+        			if(!shape){
+        				return false;
+        			}
+        		
+        			return true;
+        		}
+        </script>
          <script>
- 			$('document').ready(function(){
+/*  			$('document').ready(function(){
 				  var inputs = $("form#searchform input, form#searchform text");
 				  var validateInputs = function validateInputs(inputs) {
 				  var validForm = true;
@@ -30,18 +45,9 @@
 				    $("#build-button").attr("disabled", false);
 				  }
 				});
-			}); 
-/* 			
- 		    $('document').ready(function () {
-		        $('#search_text').onkeyup(function () {
-		            if ($(this).val() == '') {
-		                $('#build-button').prop('disabled', true);
-		            } else {
-		                $('#build-button').prop('disabled', false);
-		            }
-		        });
-		    }); */
- 
+			}); */
+
+
         
         </script>
     </head>
@@ -49,7 +55,7 @@
     		<div class="container">
 	        <div id="index-wrap" class="wrapper">
 	        <h1 id="titletext">Collage Builder</h1>
-	            <form id="searchform" method="GET" action="build">
+	            <form id="searchform" method="GET" action="build" onsubmit="return validateForms()">
 	            
 	                <!--Topic text input-->
 	                <div class="label-divs">
@@ -125,9 +131,8 @@
 	                <input type= "checkbox" id="rotation" name="rotation"/> <br />
 	                </div>
 	                   
-	                <span>
-	                    <button type="submit" id="build-button" disabled="disabled">Build Collage</button>
-	                </span>
+	                <input type="submit" id="build-button" value="Build Collage" />
+	                
 	            </form>
 	        </div>
 		</div>
