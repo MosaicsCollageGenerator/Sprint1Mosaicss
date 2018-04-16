@@ -44,17 +44,20 @@ public class BuildServlet extends HttpServlet {
 			filter = CollageBuilder.Filter.GRAYSCALE;
 		}
 		
-		Boolean rotation;
-		Boolean border;
-		if(request.getParameter("rotation").contains("on")){
-			rotation = true;
-		}else {
+		Boolean rotation = false;
+		Boolean border = false;
+		if(request.getParameter("rotation")==null) {
 			rotation = false;
 		}
-		if(request.getParameter("border").contains("on")){
-			border = true;
-		}else {
+		else if(request.getParameter("rotation").contains("on")){
+			rotation = true;
+		}
+		
+		if(request.getParameter("border")==null) {
 			border = false;
+		}
+		else if(request.getParameter("border").contains("on")){
+			border = true;
 		}
 
 		Boolean testing = false;
