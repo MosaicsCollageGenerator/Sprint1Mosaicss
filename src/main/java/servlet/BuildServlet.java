@@ -88,9 +88,9 @@ public class BuildServlet extends HttpServlet {
 		session.setAttribute("topic", topic);
 		
 		
-		String user = request.getParameter("user_id");
-		CollageRepository cr = new CollageRepository();
-		ArrayList<Collage> collages = (ArrayList<Collage>) cr.getAllCollageFromUser(user);
+//		String user = request.getParameter("user_id");
+//		CollageRepository cr = new CollageRepository();
+//		ArrayList<Collage> collages = (ArrayList<Collage>) cr.getAllCollageFromUser(user);
 		
 		
 		
