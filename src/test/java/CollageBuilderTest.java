@@ -16,7 +16,7 @@ public class CollageBuilderTest {
 
     @Test
     public void test_Initialization_StartsWithDefaultParameter() {
-        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow").testing(true).build();
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow", 800, 600, CollageBuilder.Filter.None, 0, false, true).build();
         assertNotNull(collageBuilder.getTopic());
         assertNotNull(collageBuilder.getShape());
         assertNotNull(collageBuilder.getFilter());
@@ -28,7 +28,7 @@ public class CollageBuilderTest {
 
     @Test
     public void test_Build_CreatesCorrectCollage() throws IOException {
-        CollageBuilder collageBuilder =  new CollageBuilder.Builder("cat", "meow").testing(true).build();
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow", 800, 600, CollageBuilder.Filter.None, 0, false, true).build();
         BufferedImage collage = collageBuilder.build();
         BufferedImage correctCollage = ImageIO.read(new File("CorrectCollage/correctCollage.png"));
         assertEquals(correctCollage.getHeight(), collage.getHeight());
@@ -41,9 +41,8 @@ public class CollageBuilderTest {
     }
 
     @Test
-    public void test_Filter_CreatesGreyscaleImage() {
-        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow")
-                .filter(CollageBuilder.Filter.GRAYSCALE).testing(true).build();
+    public void test_Filter_CreatesGrayscaleImage() {
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow", 800, 600, CollageBuilder.Filter.GRAYSCALE, 0, false, true).build();
         BufferedImage collage = collageBuilder.build();
 
         int width = collage.getWidth();
@@ -69,8 +68,7 @@ public class CollageBuilderTest {
     // TO-DO: GENERATE A CORRECT SEPIA IMAGE AND PASTE IT INTO CORRECTCOLLAGE
     @Test
     public void test_Filter_CreatesSepiaImage() throws IOException {
-        CollageBuilder collageBuilder =  new CollageBuilder.Builder("cat", "meow")
-                .filter(CollageBuilder.Filter.SEPIA).testing(true).build();
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow", 800, 600, CollageBuilder.Filter.SEPIA, 0, false, true).build();
         BufferedImage collage = collageBuilder.build();
         BufferedImage correctCollage = ImageIO.read(new File("CorrectCollage/sepiaCollage.png"));
         assertEquals(correctCollage.getHeight(), collage.getHeight());
@@ -84,8 +82,7 @@ public class CollageBuilderTest {
 
     @Test
     public void test_Filter_CreatesBWImage() {
-        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow")
-                .filter(CollageBuilder.Filter.BW).testing(true).build();
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow", 800, 600, CollageBuilder.Filter.BW, 0, false, true).build();
         BufferedImage collage = collageBuilder.build();
 
         int width = collage.getWidth();
@@ -102,14 +99,15 @@ public class CollageBuilderTest {
                 blue = (pixel) & 0xff;
 
                 //check if R=G=B=0 || R=G=B=255
-                assertTrue((red == 0xFFFFFF && red == green && green == blue) || (red == 0x0 && red == green && green == blue));
+                assertTrue(red == 0|| red == 255);
+                assertTrue(green == 0 || green == 255);
+                assertTrue(blue == 0 || blue == 255);
             }
     }
 
     @Test
     public void test_ResizeCollage_CorrectlyResizeCollageDimension() {
-        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow")
-                .height(1000).width(1000).testing(true).build();
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow", 1000, 1000, CollageBuilder.Filter.None, 0, false, true).build();
         BufferedImage collage = collageBuilder.build();
         int expectedHeight = 1000;
         int expectedWidth = 1000;
@@ -120,8 +118,7 @@ public class CollageBuilderTest {
     // TO-DO: ADD A COLLAGE WITH BORDER IN CORRECTCOLLAGE FOLDER
     @Test
     public void test_Borders_CorrectlyAppliesBordersToCollage() throws IOException {
-        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow")
-                .border(true).testing(true).build();
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow", 800, 600, CollageBuilder.Filter.None, 0, true, true).build();
         BufferedImage collage = collageBuilder.build();
         BufferedImage correctCollage = ImageIO.read(new File("CorrectCollage/borderCollage.png"));
         assertEquals(correctCollage.getHeight(), collage.getHeight());
@@ -138,8 +135,7 @@ public class CollageBuilderTest {
     // ADD AN IMAGE 90 degree rotation
     @Test
     public void test_Rotations_CorrectAppliesRotationToImage() throws IOException {
-        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow")
-                .rotation(90).testing(true).build();
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow", 800, 600, CollageBuilder.Filter.None, 90, false, true).build();
         BufferedImage collage = collageBuilder.build();
         BufferedImage correctCollage = ImageIO.read(new File("CorrectCollage/90DegreeRotation.png"));
         assertEquals(correctCollage.getHeight(), collage.getHeight());
@@ -153,8 +149,7 @@ public class CollageBuilderTest {
 
     @Test
     public void test_Rotations_ZeroDegreeReturnsCollageWithNoRotation() throws IOException {
-        CollageBuilder collageBuilder =  new CollageBuilder.Builder("cat", "meow")
-                .rotation(0).testing(true).build();
+        CollageBuilder collageBuilder = new CollageBuilder.Builder("cat", "meow", 800, 600, CollageBuilder.Filter.None, 0, false, true).build();
         BufferedImage collage = collageBuilder.build();
         BufferedImage correctCollage = ImageIO.read(new File("CorrectCollage/correctCollage.png"));
         assertEquals(correctCollage.getHeight(), collage.getHeight());

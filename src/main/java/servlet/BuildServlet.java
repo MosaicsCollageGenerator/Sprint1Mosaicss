@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
 
 import javax.imageio.ImageIO;
@@ -18,6 +19,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import main.java.builder.CollageBuilder;
+import main.java.model.Collage;
+import main.java.repository.CollageRepository;
 
 /**
  * Servlet implementation class BuildServlet
@@ -44,17 +47,20 @@ public class BuildServlet extends HttpServlet {
 			filter = CollageBuilder.Filter.GRAYSCALE;
 		}
 		
-		Boolean rotation;
-		Boolean border;
-		if(request.getParameter("rotation").contains("on")){
-			rotation = true;
-		}else {
-			rotation = false;
+		int rotation = 0;
+		Boolean border = false;
+		if(request.getParameter("rotation")==null) {
+			rotation = 0;
 		}
-		if(request.getParameter("border").contains("on")){
-			border = true;
-		}else {
+		else if(request.getParameter("rotation").contains("on")){
+			rotation = 365;
+		}
+		
+		if(request.getParameter("border")==null) {
 			border = false;
+		}
+		else if(request.getParameter("border").contains("on")){
+			border = true;
 		}
 
 		Boolean testing = false;
@@ -80,7 +86,22 @@ public class BuildServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("collage", imageString);
 		session.setAttribute("topic", topic);
+		
+		
+//		String user = request.getParameter("user_id");
+//		CollageRepository cr = new CollageRepository();
+//		ArrayList<Collage> collages = (ArrayList<Collage>) cr.getAllCollageFromUser(user);
+		
+		
+		
+	
+		
+		
+		
+		
 		request.getRequestDispatcher("/display.jsp").forward(request, response);
+		
+		
 		
 	}
 	
