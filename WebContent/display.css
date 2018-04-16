@@ -35,6 +35,11 @@ tr, table, td {
 	display: block;
 }
 
+#build-another-button 
+{
+	margin: 20px 0px 20px 0px;
+}
+
 #collage-history {
 	position: relative;
 	overflow-x: scroll;

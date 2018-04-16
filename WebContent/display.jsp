@@ -28,7 +28,7 @@
 						<tr>
 							<td>
 					            <!--Build Another Collage Button -->
-					            <button id="build-another-button">Build Another Collage</button>
+					            <button id="build-another-button" onclick="location.href='index.jsp'">Build Another Collage</button>
 			            		</td>
 						</tr>
 					</table>

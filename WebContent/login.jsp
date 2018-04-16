@@ -13,32 +13,6 @@
         <link rel="stylesheet" type="text/css" href="base.css?v=2">
         <link rel="stylesheet" type="text/css" href="login.css?v=2">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-        
-<!--      <script>
-
-			$('document').ready(function(){
-				  var inputs = $("form#login-form text, form#login-form password");
-				  var validateInputs = function validateInputs(inputs) {
-				  var validForm = true;
-				  inputs.each(function(index) {
-				    var input = $(this);
-				    if (!input.val()) {
-				      $("#login-button").attr("disabled", true);
-				      validForm = false;
-				    }
-				  });
-				  return validForm;
-				}
-				
-				inputs.change(function() {
-				  if (validateInputs(inputs)) {
-				    $("#login-button").attr("disabled", false);
-				  }
-				});
-			});
-
-        
-        </script> -->
     </head>
     <body>
         <div id="container">

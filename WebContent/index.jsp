@@ -11,8 +11,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         
          <script>
-
-			$('document').ready(function(){
+ 			$('document').ready(function(){
 				  var inputs = $("form#searchform input, form#searchform text");
 				  var validateInputs = function validateInputs(inputs) {
 				  var validForm = true;
@@ -31,8 +30,18 @@
 				    $("#build-button").attr("disabled", false);
 				  }
 				});
-			});
-
+			}); 
+/* 			
+ 		    $('document').ready(function () {
+		        $('#search_text').onkeyup(function () {
+		            if ($(this).val() == '') {
+		                $('#build-button').prop('disabled', true);
+		            } else {
+		                $('#build-button').prop('disabled', false);
+		            }
+		        });
+		    }); */
+ 
         
         </script>
     </head>
@@ -40,7 +49,7 @@
     		<div class="container">
 	        <div id="index-wrap" class="wrapper">
 	        <h1 id="titletext">Collage Builder</h1>
-	            <form id = "searchform" method="GET" action="build">
+	            <form id="searchform" method="GET" action="build">
 	            
 	                <!--Topic text input-->
 	                <div class="label-divs">
