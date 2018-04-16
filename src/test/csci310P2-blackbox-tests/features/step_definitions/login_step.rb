@@ -16,5 +16,5 @@ And(/^I press Login$/) do
 end
 
 Then(/^I should see the collage options page.$/) do
-  expect(page).to have_content("MOSAIC Options Page")
+  expect(page).to have_content("Welcome halfond!")
 end
