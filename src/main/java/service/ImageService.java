@@ -16,12 +16,12 @@ import java.util.List;
 import static org.apache.http.params.CoreProtocolPNames.USER_AGENT;
 
 public class ImageService {
-    //  private static final String GOOGLE_SEARCH_API_KEY = "AIzaSyCQbxRMKMxuyaIVmosCa_k2sIv5BeavGFs";
-    //  private static final String GOOGLE_CX = "007628912923159165220:9e6kozm2iea";  // custom search engine identifier
-//    private static final String GOOGLE_SEARCH_API_KEY = "AIzaSyADYi8Ob0jmPJbGEMCkJwrB31bOY80RtXs";
-//    private static final String GOOGLE_CX = "008543189839369971484:b8selplq7z8";
-	  private static final String GOOGLE_SEARCH_API_KEY = "AIzaSyB7_yytK04B7speZc4lXsHLr9ARmwPiUzw";
-	  private static final String GOOGLE_CX = "015527610641952349258:lx1x9pjo0ec";
+//      private static final String GOOGLE_SEARCH_API_KEY = "AIzaSyCQbxRMKMxuyaIVmosCa_k2sIv5BeavGFs";
+//      private static final String GOOGLE_CX = "007628912923159165220:9e6kozm2iea";  // custom search engine identifier
+	  private static final String GOOGLE_SEARCH_API_KEY = "AIzaSyADYi8Ob0jmPJbGEMCkJwrB31bOY80RtXs";
+	  private static final String GOOGLE_CX = "008543189839369971484:b8selplq7z8";
+//	  private static final String GOOGLE_SEARCH_API_KEY = "AIzaSyB7_yytK04B7speZc4lXsHLr9ARmwPiUzw";
+//	  private static final String GOOGLE_CX = "015527610641952349258:lx1x9pjo0ec";
 
     //generate url to make request to our Google custom search engine
     private static URL generateRequestURL(String topic, int resultNumber, String garbageString) throws MalformedURLException {
@@ -121,4 +121,3 @@ public class ImageService {
     }
 
 }
-

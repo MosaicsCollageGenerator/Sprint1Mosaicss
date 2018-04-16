@@ -1,15 +1,38 @@
 package main.java.builder;
 
-import main.java.service.ImageService;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.AWTException;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.Robot;
+import java.awt.TexturePaint;
+import java.awt.Toolkit;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+import java.util.Vector;
+
+import javax.imageio.ImageIO;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
+import main.java.service.ImageService;
 
 public class CollageBuilder {
     // Required parameters
@@ -26,6 +49,16 @@ public class CollageBuilder {
     public enum Filter {
         None, SEPIA, BW, GRAYSCALE
     }
+    
+//    public static void main(String[] args) {
+//    		CollageBuilder builder = new CollageBuilder.Builder("dogs", "dogs", 800, 600, Filter.None, true, true, false).build();
+//    		BufferedImage image = builder.build();
+//    		try {
+//	            ImageIO.write(image, "png", new File("rotatedcollage.png"));
+//	        } catch (IOException e) {
+//	            e.printStackTrace();
+//	        }	
+//    }
 
     public static class Builder {
         // Required parameters
@@ -132,7 +165,7 @@ public class CollageBuilder {
         	        //set border color
         	        g.setColor(Color.RED);
         	        //set border thickness
-        	        g.setStroke(new BasicStroke(4));
+        	        g.setStroke(new BasicStroke(6));
         	        //to fix issue for even numbers
 //        	        if(borderWidth % 2 == 0){
 //        	            borderControl = 0;
@@ -145,15 +178,73 @@ public class CollageBuilder {
         }
         return images;
     }
+    
     // TO-DO
-    private List<BufferedImage> rotateImages(List<BufferedImage> images, boolean rotation) {
+    public List<BufferedImage> rotateImages(List<BufferedImage> images, boolean rotation) {
         if (rotation) {
-
+			Vector<Integer> randDegrees = null;
+			
+			// Generate random values until there is at least one zero present
+			int minDegree = 1;
+			while (minDegree > 0) {
+				randDegrees = generateDegrees();
+				int indexOfZero = randDegrees.indexOf(0);
+				if (indexOfZero > -1) {
+					Collections.swap(randDegrees, 0, indexOfZero);
+					minDegree = 0;
+				}
+			}
+        		for(int i=0; i<images.size(); i++)
+        		{
+        			images.set(i, rotateImage(images.get(i),randDegrees.get(i)));
+        		}
+//        	        AffineTransform at = new AffineTransform();
+//        	        // 4. translate it to the center of the component
+//        	        at.translate(images.get(i).getWidth()/2, images.get(i).getHeight()/2);
+//        	        // 3. do the actual rotation
+//        	        at.rotate(randDegrees.get(i));
+//        	        // 2. just a scale because this image is big
+//        	        at.scale(0.5, 0.5);
+//        	        // 1. translate the object so that you rotate it around the
+//        	        //    center (easier :))
+//        	        at.translate(-images.get(i).getWidth()/1.5, -images.get(i).getHeight()/1.5);
+//        	        // draw the image
+//        	        BufferedImage newImage = new BufferedImage(images.get(i).getWidth(), images.get(i).getHeight(), images.get(i).getType());
+//        	        Graphics2D g = (Graphics2D) newImage.getGraphics();
+//        	        Graphics2D g2d = (Graphics2D) g;
+//        	        g2d.drawImage(images.get(i), at, null);
+//        	        File outputfile = new File("rotated.png");
+////        	        try {
+////        	            ImageIO.write(newImage, "png", outputfile);
+////        	        } catch (IOException e) {
+////        	            e.printStackTrace();
+////        	        }
+//        	        
+//        	        images.set(i, newImage);
+//        		}
         }
         return images;
     }
+    //////////////////////////////////////
+	public BufferedImage rotateImage(BufferedImage src,int inDegrees) {
+		// Calculate the width and height of the rotated image
+		double rad = Math.toRadians(inDegrees);
+		double sin = Math.abs(Math.sin(rad)), cos = Math.abs(Math.cos(rad));
+	    int srcWidth = src.getWidth(), srcHeight = src.getHeight();
+	    int rotWidth = (int)Math.floor(srcWidth*cos+srcHeight*sin), rotHeight = (int) Math.floor(srcHeight*cos + srcWidth*sin);
+		
+	    // Rotate the image using Graphics2D
+	    BufferedImage rotatedImage = new BufferedImage(rotWidth, rotHeight, 
+	    		BufferedImage.TRANSLUCENT);
+	    Graphics2D g2d = rotatedImage.createGraphics();
+	    g2d.rotate(Math.toRadians(inDegrees), rotWidth/2, rotHeight/2);
+	    g2d.drawImage(src, (rotWidth-srcWidth)/2, (rotHeight-srcHeight)/2, null);
+        g2d.dispose();
+        return rotatedImage;
+	}
+	////////////////////////////////////////////
 
-    private BufferedImage buildSingleCollage(List<BufferedImage> images, int height, int width,String shape) {
+    public BufferedImage buildSingleCollage(List<BufferedImage> images, int height, int width,String shape) {
         // formatImages is a helper function used to format images (resize, add border)
         for (int i = 0; i < images.size(); ++i) {
             images.set(i, resizeCollage(images.get(i), 50, 50));
@@ -171,15 +262,19 @@ public class CollageBuilder {
         g2.setColor(oldColor);
         int currX = 0;
         int currY = 0;
-        int i = 0;
+        int i = 1;
         
         //taking the length to determine how long the collage should be
         int length = shape.length()/3;
         width *=length;
         
+        images.set(0,resizeCollage(images.get(0), (height),(width)));
+        
+        g2.drawImage(images.get(0), null, 0, 0);
+        
         while(currY < width) {
             if (i == 30) {
-                i = 0;
+                i = 1;
             }
             //System.out.println("IN HERE");
             //System.out.println("height is "+ height);
@@ -201,8 +296,25 @@ public class CollageBuilder {
             ++i;
         }
         g2.dispose();
+        try {
+            ImageIO.write(newImage, "png", new File("CAPY.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return newImage;
     }
+    
+	// Generate a vector of random integers between -45 and 45 inclusive
+	public Vector<Integer> generateDegrees(){
+		Vector<Integer> degrees = new Vector<Integer>();
+		Random rand = new Random();
+		for(int i = 0; i < 30; i++) {
+			int num = rand.nextInt(91);
+			num -= 45;
+			degrees.add(num);
+		}
+		return degrees;
+	}
 
     // TO-DO
     private BufferedImage buildShapedCollage(BufferedImage collage, String shape) {
@@ -253,6 +365,8 @@ public class CollageBuilder {
     private BufferedImage applyFilterToCollage(BufferedImage collage, Filter filter) {
     		int width = collage.getWidth();
     		int height = collage.getHeight();
+    		
+    		//apply Sepia Filter
         if (filter.equals(Filter.SEPIA)) {
         		for(int y=0; y<height; y++) {
         			for(int x=0; x<width; x++) {
@@ -284,10 +398,19 @@ public class CollageBuilder {
         				collage.setRGB(x, y, p);
         			}
         		}
-        } else if (filter.equals(Filter.BW)) {
-        		
-        		
-        } else if (filter.equals(Filter.GRAYSCALE)) {
+        } 
+        
+        //apply black and white filter
+        else if (filter.equals(Filter.BW)) {
+        		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_BINARY);
+            Graphics2D graphic = result.createGraphics();
+            graphic.drawImage(collage, 0, 0, Color.WHITE, null);
+            graphic.dispose();
+            collage = result;
+        } 
+        
+        //apply grayscale filter
+        else if (filter.equals(Filter.GRAYSCALE)) {
             for(int y = 0; y < height; y++){
               for(int x = 0; x < width; x++){
                 int p = collage.getRGB(x,y);
@@ -465,7 +588,6 @@ class ScreenImage
 
         //  Paint a background for non-opaque components,
         //  otherwise the background will be black
-
         if (! component.isOpaque())
         {
             g2d.setColor( component.getBackground() );

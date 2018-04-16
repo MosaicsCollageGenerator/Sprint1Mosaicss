@@ -44,25 +44,44 @@ public class BuildServlet extends HttpServlet {
 			filter = CollageBuilder.Filter.GRAYSCALE;
 		}
 		
-		
-		
-//		Boolean rotation = Boolean.parseBoolean(request.getParameter("rotation"));
-//		Boolean border = Boolean.parseBoolean(request.getParameter("border"));
+		Boolean rotation;
+		Boolean border;
+		if(request.getParameter("rotation").contains("on")){
+			rotation = true;
+		}else {
+			rotation = false;
+		}
+		if(request.getParameter("border").contains("on")){
+			border = true;
+		}else {
+			border = false;
+		}
+
 		Boolean testing = false;
+
 		//int filter = 1;
-		Boolean rotation = true;
-		Boolean border = true;
+//		Boolean rotation = true;
+//		Boolean border = true;
+		
+		
+		
+		
 		CollageBuilder collageBuilder = new CollageBuilder.Builder(topic, shape,height,width,filter,rotation,border,testing).build();
 		
 		BufferedImage image = collageBuilder.build();
 
 //		BufferedImage image = CollageBuilder.build(topic, shape, height, width, filter, rotation, border);
+		
+		
+		
+		
 		System.out.println(image);
 		String imageString = convertBufferedImageToBase64(image);
 		HttpSession session = request.getSession();
 		session.setAttribute("collage", imageString);
 		session.setAttribute("topic", topic);
 		request.getRequestDispatcher("/display.jsp").forward(request, response);
+		
 	}
 	
 	//converts BufferedImage paramater image into returned base64 string
