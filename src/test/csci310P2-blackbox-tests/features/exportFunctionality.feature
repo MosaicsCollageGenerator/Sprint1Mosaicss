@@ -6,3 +6,5 @@ Background:
 #2b
 Scenario: Export Collage button type
 	Then the button should have label text “Export Collage
+
+Scenario: 
