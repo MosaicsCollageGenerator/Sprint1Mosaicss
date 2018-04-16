@@ -84,8 +84,7 @@
 						                  <option value=".pdf">.pdf</option>
 						            </select><br/><br/>
 						            <!-- <button id="export-button">Export</button> -->
-						            <%-- <a id="export-button-png" download="collage.png" href="data:image/png;base64, <%=(String)session.getAttribute("collage") %>"><input id="export-button" type="submit" value="Export Collage"></a> --%>
-									<a id="export-button" ><input id="export-button" type="submit" value="Export Collage"  onclick="return exportPdf()"></a>
+									<a><input id="export-button" type="submit" value="Export Collage"  onclick="return exportPdf()"></a>
 									
 						            
 						            <button id="save-button">Save to Gallery</button>
