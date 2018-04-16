@@ -10,23 +10,23 @@ button {
     padding: 10px;
 }
 
-button:hover {
+button:hover:enabled {
     opacity: 0.8;
 }
 
-.wrapper {
+ .wrapper {
 	background-color: #E1E6E9;
-	padding: 30px;
+	padding: 40px;
 	margin: auto;
 	position: absolute;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
-    padding: 10px;
     overflow: hidden;
     border: 5px solid #A1A8AC;
-}
+    height: fit-content;
+} 
 
 
 

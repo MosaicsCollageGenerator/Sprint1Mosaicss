@@ -10,10 +10,10 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     </head>
     <body>
-    		<div id="container">
+    		<div class="container">
     			<div id="options-wrap" class="wrapper">
 		        <div id="content">
-			        <h1 id="options-title">Options</h1>
+			        <h1 id="options-title">Welcome <%=(String)session.getAttribute("username") %>!</h1>
 		            <form id="optionform">
 		            		<div id="first-button">
 		                <!--Build Collage button-->

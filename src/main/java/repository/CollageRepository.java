@@ -1,6 +1,4 @@
 package main.java.repository;
-import main.java.model.Collage;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import main.java.model.Collage;
 
 
 public class CollageRepository {
@@ -26,13 +26,24 @@ public class CollageRepository {
     }
 
     private Connection connect() {
+    	
         String url = "jdbc:mysql://localhost/Mosaicss?user=root&password=root";
         Connection connection = null;
         try {
+        		Class.forName("com.mysql.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection(url);
         } catch (SQLException se) {
             System.out.println(se.getMessage());
-        }
+        } catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return connection;
     }
 

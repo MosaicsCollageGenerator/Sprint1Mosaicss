@@ -8,9 +8,36 @@
         <link rel="stylesheet" type="text/css" href="base.css?v=1">
         <link rel="stylesheet" type="text/css" href="index.css?v=1">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <script>
+
+			$('document').ready(function(){
+				  var inputs = $("form#searchform input, form#searchform text");
+				  var validateInputs = function validateInputs(inputs) {
+				  var validForm = true;
+				  inputs.each(function(index) {
+				    var input = $(this);
+				    if (!input.val()) {
+				      $("#build-button").attr("disabled", true);
+				      validForm = false;
+				    }
+				  });
+				  return validForm;
+				}
+				
+				inputs.change(function() {
+				  if (validateInputs(inputs)) {
+				    $("#build-button").attr("disabled", false);
+				  }
+				});
+			});
+
+        
+        </script>
     </head>
     <body>
-    		<div id="container">
+    		<div class="container">
 	        <div id="index-wrap" class="wrapper">
 	        <h1 id="titletext">Collage Builder</h1>
 	            <form id = "searchform" method="GET" action="build">
@@ -90,7 +117,7 @@
 	                </div>
 	                   
 	                <span>
-	                    <button type="submit" id="build-button" >Build Collage</button>
+	                    <button type="submit" id="build-button" disabled="disabled">Build Collage</button>
 	                </span>
 	            </form>
 	        </div>

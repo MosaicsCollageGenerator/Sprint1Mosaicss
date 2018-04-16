@@ -10,50 +10,54 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     </head>
     <body>
-        <div id="container">
-        		<!--Title -->
-        		<div id="title">
-            		<h1 id="display-title">Collage for topic  <%=(String)session.getAttribute("topic") %> </h1>
-            	</div>
-            <!--Collage Display -->
-            	<div id="collage-display">
-
-            		<img id="example-image" src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>">
-
-            	</div>
-            	<table id="buttons-table">
-            		<tr>
-            			<td>
-			            <!--Export Button -->
-			            <label>Export as:</label><br />
-			            <select name="exportvalue">
-			                  <option value=".png">.png</option>
-			                  <option value=".pdf">.pdf</option>
-			            </select><br/><br/>
-			            <button id="export_button">Export</button>
-			         </td>
-		        </tr>
-		        <tr>
-		        		<td>
-		            <!--Save to Gallery Button -->
-		            <button id="save_button">Save to Gallery</button>
-		            </td>
-				</tr>
-			</table>
-
-			<!--Build Another Collage -->
-			<div id="build-another-collage">
-				<button id="build-button" onclick="location.href='index.jsp'">Build Another Collage</button>
-            </div>
-
-            <!-- Gallery -->
-            <div id="footer">
-
-                <label>Gallery:</label><br />
-                <div id="collage-history">
-
-                </div>
-            </div>
-        </div>
+		<table>
+			<tr>
+				<td colspan="3" id="title-row">
+					<h1 id="display-title">Collage for topic <%=(String)session.getAttribute("topic") %> </h1>
+				</td>
+			</tr>
+			<tr>
+				<td id="buffer-column"></td>
+				<td id="display-collage">
+					<table>
+						<tr>
+							<td>
+								<img id="example-image" src="logo.png" <%-- src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>" --%>>
+							</td>
+						</tr>
+						<tr>
+							<td>
+					            <!--Build Another Collage Button -->
+					            <button id="build-another-button">Build Another Collage</button>
+			            		</td>
+						</tr>
+					</table>
+				</td>
+				<td id="export-column">
+					 <table id="buttons-table">
+            				<tr>
+            					<td>
+					            <!--Export Button -->
+					            <div class="selectdiv">
+						            <label>Export as:</label><br />
+						            <select name="exportvalue">
+						                  <option value=".png">.png</option>
+						                  <option value=".pdf">.pdf</option>
+						            </select><br/><br/>
+						            <button id="export-button">Export</button>
+						            <button id="save-button">Save to Gallery</button>
+						        </div>
+			         		</td>
+		        			</tr>
+					</table>
+				</td>
+			</tr>
+			<tr colspan = "3">
+				<td>
+					<label>Gallery:</label><br />
+					
+				</td>
+			</tr>
+		</table>
     </body>
 </html>

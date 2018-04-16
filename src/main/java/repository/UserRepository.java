@@ -24,12 +24,21 @@ public class UserRepository {
         resetDatabase();
     }
 
+    
     private Connection connect() {
         Connection connection = null;
+        
         try {
+        		Class.forName("com.mysql.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection(dbUrl);
         } catch (SQLException se) {
             System.out.println(se.getMessage());
+        } catch (IllegalAccessException e) {
+        		e.printStackTrace();
+        } catch (InstantiationException e) {
+        		e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+        		e.printStackTrace();
         }
         return connection;
     }
@@ -91,6 +100,10 @@ public class UserRepository {
         return allUsers;
     }
 
+    public int getNumUsers() {
+    		return getAllUsers().size();
+    	
+    }
     public void saveUser(User user) {
         String sql = "INSERT INTO User(username,password) VALUES(?,?)";
         try (Connection connection = this.connect();
@@ -116,4 +129,5 @@ public class UserRepository {
         }
     }
 }
+
 
