@@ -6,33 +6,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MOSAICS</title>
         <link rel="stylesheet" type="text/css" href="base.css?v=3">
-        <link rel="stylesheet" type="text/css" href="display.css?v=3">
+        <link rel="stylesheet" type="text/css" href="display.css?v=2">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         
         <script>
-			/* $('document').ready(function(){
-				var options = $("#exportvalue");
-				options.change(function() {
-					var selected-option = options.options[options.selectedIndex].value;
-				  	if(selected-option === ".png"){
-					    document.getElementById("export-button-png").style.display = "block";
-					    document.getElementById("export-button-pdf").style.display = "none";
-					    $("#export-button-pdf").attr("disabled", true);
-					    $("#export-button-png").attr("disabled", false);
-				 	 } 
-				  	else 
-				  	{
-					    document.getElementById("export-button-png").style.display = "block";
-					    document.getElementById("export-button-pdf").style.display = "none";
-					    $("#export-button-png").attr("disabled", true);
-					    $("#export-button-pdf").attr("disabled", false);
-				  	}
-				  
-				});
-			});  */
-			
+        		var myVar;
+        		function myFunction() {
+        			myVar = setTimeout(showPage, 3000);
+        		}
+        		
+        		function showPage() {
+        			  document.getElementById("loader").style.display = "none";
+        			  document.getElementById("image-div").style.display = "block";
+        			}
 			function exportPdf() {
 				var options = $("#exportvalue");
 				var selected_option = $("#exportvalue option:selected").text();
@@ -55,7 +43,7 @@
         </script>
     </head>
     
-    <body>
+    <body onload="myFunction()">
 		<table>
 			<tr>
 				<td colspan="3" id="title-row">
@@ -68,7 +56,12 @@
 					<table>
 						<tr>
 							<td>
-								<img id="example-image" src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>">
+								<div id="loader" >
+									<img id="loading-image" src ="loadinggif.gif">
+								</div>
+								<div id="image-div" style ="display:none;">
+									<img id="example-image" src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>">
+								</div>
 							</td>
 						</tr>
 						<tr>
