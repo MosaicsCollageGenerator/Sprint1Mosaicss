@@ -46,6 +46,19 @@ public class RegisterServlet extends HttpServlet {
 		User newUser = new User(Integer.toString(users.getNumUsers()),username,password);
 		users.saveUser(newUser);
 		session.setAttribute("userID", newUser.getId());
+		//HttpSession session = request.getSession();
+		if(newUser != null) {
+			if(newUser.getPassword().equals(password)) {
+				session.setAttribute("userID", newUser.getId());
+				session.setAttribute("username", newUser.getUsername());
+				session.setAttribute("errorMessage", "");
+				request.getRequestDispatcher("/options.jsp").forward(request, response);
+			} 
+			else {
+				session.setAttribute("errorMessage", "Incorrect Password");
+				request.getRequestDispatcher("/login.jsp").forward(request, response);
+			}
+		} 
 		session.setAttribute("registerError", "");
 		session.setAttribute("errorMessage", "");
 		request.getRequestDispatcher("/options.jsp").forward(request, response);
