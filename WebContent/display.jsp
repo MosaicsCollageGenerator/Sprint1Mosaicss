@@ -22,7 +22,7 @@
 					<table>
 						<tr>
 							<td>
-								<img id="example-image" src="logo.png" <%-- src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>" --%>>
+								<img id="example-image" src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>">
 							</td>
 						</tr>
 						<tr>
