@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MOSAICS</title>
         <link rel="stylesheet" type="text/css" href="base.css?v=1">
-        <link rel="stylesheet" type="text/css" href="index.css?v=1">
+        <link rel="stylesheet" type="text/css" href="index.css?v=2">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
@@ -21,39 +21,29 @@
         			if(!shape){
         				return false;
         			}
-        		
+        			loadImage();
         			return true;
         		}
-        </script>
-         <script>
-/*  			$('document').ready(function(){
-				  var inputs = $("form#searchform input, form#searchform text");
-				  var validateInputs = function validateInputs(inputs) {
-				  var validForm = true;
-				  inputs.each(function(index) {
-				    var input = $(this);
-				    if (!input.val()) {
-				      $("#build-button").attr("disabled", true);
-				      validForm = false;
-				    }
-				  });
-				  return validForm;
-				}
-				
-				inputs.change(function() {
-				  if (validateInputs(inputs)) {
-				    $("#build-button").attr("disabled", false);
-				  }
-				});
-			}); */
-
-
-        
+        		
+        		function loadImage() {
+        		    var loaderId = document.getElementById("loader");
+        		    var indexWrap = document.getElementById("index-wrap");
+        		    if (loaderId.style.display === "none") {
+        		        loaderId.style.display = "block";
+        		        indexWrap.style.display = "none";
+        		    } else {
+        		        loaderId.style.display = "none";
+        		        indexWrap.style.display = "block";
+        		    }
+        		}
         </script>
     </head>
     <body>
     		<div class="container">
-	        <div id="index-wrap" class="wrapper">
+			<div id="loader" style ="display:none;">
+				<img id="loading-image" src ="loadinggif.gif" >
+			</div>
+	        <div id="index-wrap" class="wrapper" style ="display:block;">
 	        <h1 id="titletext">Collage Builder</h1>
 	            <form id="searchform" method="GET" action="build" onsubmit="return validateForms()">
 	            
@@ -131,8 +121,7 @@
 	                <input type= "checkbox" id="rotation" name="rotation"/> <br />
 	                </div>
 	                   
-	                <input type="submit" id="build-button" value="Build Collage" />
-	                
+	                <input type="submit" id="build-button" value="Build Collage"/>	                
 	            </form>
 	        </div>
 		</div>
