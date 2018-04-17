@@ -47,7 +47,7 @@
     				<div class="contents">
     					<div class="spacer">&nbsp;</div>
     					<div class="collage">
-    						<img id="collage-pic" src="logo.png"><%-- src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(0) %>" --%>>
+    						<img id="collage-pic" src="data:image/png;base64, <%=(String) session.getAttribute("collage") %>" >
     					</div>
     					<div class="export">
 <!--     						<div class="selectdiv"> -->
@@ -73,13 +73,11 @@
 
 			<div id="gallery-title">Gallery:</div>
 
-			<div class="gallery">
-				<img class="gallery-pic" src="error.png" onclick="changeImg()">
-				<img class="gallery-pic" src="logo.png">
-				<img class="gallery-pic" src="loadingimage.gif">
-				<img class="gallery-pic" src="logo.png">
+			<div class="gallery" id = galleryTable>
+					    <% for(int i = 0; i < ((ArrayList<String>)session.getAttribute("collages")).size(); i+=1) { %>
+					        	<img id="example-image" width="100" height="100" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(i) %>">
+					    <% } %>
 			</div>
-
 <%-- 		<table id="layout">
 			<tr>
 
@@ -158,6 +156,6 @@
 			</tr>
 		</table> --%>
 		<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
-		<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a> --%>
+		<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
     </body>
 </html>
