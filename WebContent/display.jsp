@@ -12,15 +12,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         
         <script>
-        		var myVar;
-        		function myFunction() {
-        			myVar = setTimeout(showPage, 3000);
-        		}
-        		
-        		function showPage() {
-        			  document.getElementById("loader").style.display = "none";
-        			  document.getElementById("image-div").style.display = "block";
-        			}
 			function exportPdf() {
 				var options = $("#exportvalue");
 				var selected_option = $("#exportvalue option:selected").text();
@@ -43,7 +34,7 @@
         </script>
     </head>
     
-    <body onload="myFunction()">
+    <body>
 		<table>
 			<tr>
 				<td colspan="3" id="title-row">
@@ -56,12 +47,7 @@
 					<table>
 						<tr>
 							<td>
-								<div id="loader" >
-									<img id="loading-image" src ="loadinggif.gif">
-								</div>
-								<div id="image-div" style ="display:none;">
-									<img id="example-image" src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>">
-								</div>
+								<img id="example-image" src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>">
 							</td>
 						</tr>
 						<tr>
@@ -86,7 +72,6 @@
 						            <!-- <button id="export-button">Export</button> -->
 									<a><input id="export-button" type="submit" value="Export Collage"  onclick="return exportPdf()"></a>
 									
-						            
 						            <button id="save-button">Save to Gallery</button>
 						        </div>
 			         		</td>
@@ -97,6 +82,7 @@
 			<tr colspan = "3">
 				<td>
 					<label>Gallery:</label><br />
+						
 					
 				</td>
 			</tr>
