@@ -6,3 +6,4 @@ cucumber features/collageHistory.feature
 cucumber features/collageGeneration.feature
 cucumber features/loadingImage.feature
 cucumber features/exportFunctionality.feature
+cucumber features/collageHistory.feature
