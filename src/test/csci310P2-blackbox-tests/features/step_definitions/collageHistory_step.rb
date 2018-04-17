@@ -16,3 +16,11 @@ end
 Then(/^I should see the id of the image in gallery$/) do
   page.should have_content('#cat')
 end
+
+When(/^I click on cat image in Gallery$/) do
+  click_button("Save to Gallery")
+end
+
+Then(/^I should see cat collage be displayed$/) do
+  page.should have_content('#cat')
+end
