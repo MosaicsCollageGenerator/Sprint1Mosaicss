@@ -37,7 +37,11 @@ public class ImageService {
 
     // The public interface exposed. Returns a list of images given a topic name (query)
     public static List<BufferedImage> getImages(String query) {
+    		System.out.println(query);
         List<BufferedImage> images = new ArrayList<>();
+        if (query == null) {
+			return images;
+		}
         try {
             // maintain count of number of results fetched from API
             int resultNum = 0;
@@ -84,6 +88,8 @@ public class ImageService {
                             }
                         } catch (IIOException e) {
                             e.printStackTrace();
+                        } catch (ArrayIndexOutOfBoundsException e) {
+                        		e.printStackTrace();
                         }
                     }
                 }
