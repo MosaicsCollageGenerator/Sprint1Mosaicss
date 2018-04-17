@@ -53,7 +53,7 @@ public class UserRepository {
             while (rs.next()) {
                 String userId = rs.getString("id");
                 String password = rs.getString("password");
-                user = new User(username, password);
+                user = new User(userId,username, password);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

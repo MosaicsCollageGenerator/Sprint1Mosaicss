@@ -46,7 +46,7 @@
 	        <div id="index-wrap" class="wrapper" style ="display:block;">
 	        <h1 id="titletext">Collage Builder</h1>
 	            <form id="searchform" method="GET" action="build" onsubmit="return validateForms()">
-	            
+	            		
 	                <!--Topic text input-->
 	                <div class="label-divs">
 	                <label>Topic</label>
