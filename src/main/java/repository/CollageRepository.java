@@ -1,4 +1,12 @@
 package main.java.repository;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +15,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
+import javax.imageio.ImageIO;
+
 
 import main.java.model.Collage;
 
@@ -26,7 +38,7 @@ public class CollageRepository {
     }
 
     private Connection connect() {
-    	
+
         String url = "jdbc:mysql://localhost/Mosaicss?user=root&password=root";
         Connection connection = null;
         try {
@@ -85,8 +97,8 @@ public class CollageRepository {
         return collage;
     }
 
-    public List<Collage> getAllCollageFromUser(String user_id) {
-        List<Collage> allCollage = new ArrayList<>();
+    public List<String> getAllCollageFromUser(String user_id) {
+        List<String> allCollage = new ArrayList<>();
         String sql = "SELECT * FROM Collage WHERE user_id='" + user_id+ "'";;
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
@@ -95,8 +107,16 @@ public class CollageRepository {
             while (rs.next()) {
                 String id = rs.getString("id");
                 String title = rs.getString("title");
-                String src = rs.getString("src");
-                allCollage.add(new Collage(id, title, src, user_id));
+                String src = null;
+               // Blob b = rs.getBlob("src");//cast with (Blob) if required. Blob from resultSet as rs.getBlob(index).
+                //InputStream bis = b.getBinaryStream();
+                InputStream binaryStream = rs.getBinaryStream("src");
+                Scanner s = new Scanner(binaryStream);
+                src = s.hasNext() ? s.next() : "";
+                //ObjectInputStream ois = new ObjectInputStream(binaryStream);
+                //src= (String) ois.readObject();
+
+                allCollage.add(src);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -106,15 +126,34 @@ public class CollageRepository {
 
     public void saveCollage(Collage collage) {
         String sql = "INSERT INTO Collage(title,src,user_id) VALUES(?,?,?)";
+        FileInputStream fis = null;
         try (Connection connection = this.connect();
              PreparedStatement pstmt = (PreparedStatement) connection.prepareStatement(sql)) {
-            pstmt.setString(1, collage.getTitle());
-            pstmt.setString(2, collage.getSrc());
+//        		File file = new File(collage.getSrc());
+//        		fis = new FileInputStream(file);
+//        		System.out.println("THIS IS THE SOURCE");
+//        		System.out.println(collage.getSrc());
+//        		String base64Image = collage.getSrc().split(",")[1];
+        		String base64Image = collage.getSrc();
+        		byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
+        		BufferedImage img = ImageIO.read(new ByteArrayInputStream(imageBytes));
+
+        		File outputfile = new File("collage.jpg");
+        		ImageIO.write(img, "jpg", outputfile);
+        		fis = new FileInputStream(outputfile);
+        		System.out.println("THIS IS COLLAGE USER IS: "+collage.getUserId());
+        		pstmt.setString(1, collage.getTitle());
+            pstmt.setBinaryStream(2,fis,(int) outputfile.length());
             pstmt.setString(3, collage.getUserId());
             pstmt.executeUpdate();
+            System.out.println("FINISHED SAVING");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
+        } catch (FileNotFoundException e) {
+        	 System.out.println(e.getMessage());
+        } catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 
     public void resetDatabase() {
@@ -128,4 +167,3 @@ public class CollageRepository {
         }
     }
 }
-

@@ -45,6 +45,7 @@ public class LoginServlet extends HttpServlet {
 		//HttpSession session = request.getSession();
 		if(currentUser != null) {
 			if(currentUser.getPassword().equals(password)) {
+				System.out.println("I AM SETTING ATTRIBUTES " + currentUser.getId());
 				session.setAttribute("userID", currentUser.getId());
 				session.setAttribute("username", currentUser.getUsername());
 				session.setAttribute("errorMessage", "");

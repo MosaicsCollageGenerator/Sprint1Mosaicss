@@ -35,6 +35,8 @@ public class BuildServlet extends HttpServlet {
 		String shape = request.getParameter("shape_text");
 		int height = Integer.parseInt(request.getParameter("heightvalue"));
 		int width = Integer.parseInt(request.getParameter("widthvalue"));
+		
+		
 		CollageBuilder.Filter filter; 
 		int filterInt = Integer.parseInt(request.getParameter("filter"));
 		if (filterInt == 0 ) {
@@ -90,8 +92,8 @@ public class BuildServlet extends HttpServlet {
 		
 //		String user = request.getParameter("user_id");
 //		CollageRepository cr = new CollageRepository();
-//		ArrayList<Collage> collages = (ArrayList<Collage>) cr.getAllCollageFromUser(user);
-		
+//		ArrayList<String> collages = (ArrayList<String>) cr.getAllCollageFromUser(user);
+//		session.setAttribute("collages", collages);
 		
 		
 	

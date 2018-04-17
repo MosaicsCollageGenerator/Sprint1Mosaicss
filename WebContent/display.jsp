@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,9 +9,9 @@
         <link rel="stylesheet" type="text/css" href="base.css?v=3">
         <link rel="stylesheet" type="text/css" href="display.css?v=2">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
+
         <script>
 			function exportPdf() {
 				var options = $("#exportvalue");
@@ -34,8 +35,11 @@
 			
 			$
         </script>
+        <%
+        ArrayList<String> collages = ((ArrayList<String>) session.getAttribute("collages"));
+        %>
     </head>
-    
+
     <body>
     
     			<div class="title"> Collage for topic <%=(String)session.getAttribute("topic") %></div>
@@ -43,7 +47,7 @@
     				<div class="contents">
     					<div class="spacer">&nbsp;</div>
     					<div class="collage">
-    						<img id="collage-pic" src="logo.png"><%-- src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>" --%>>
+    						<img id="collage-pic" src="logo.png"><%-- src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(0) %>" --%>>
     					</div>
     					<div class="export">
 <!--     						<div class="selectdiv"> -->
@@ -78,6 +82,7 @@
     			
 <%-- 		<table id="layout">
 			<tr>
+			
 				<td colspan="3" id="title-row">
 					<h1 id="display-title">Collage for topic <%=(String)session.getAttribute("topic") %> </h1>
 				</td>
@@ -88,7 +93,7 @@
 					<table>
 						<tr>
 							<td>
-								<img id="example-image" src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>">
+								<img id="example-image" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(0) %>">
 							</td>
 						</tr>
 						<tr>
@@ -112,8 +117,9 @@
 						            </select><br/><br/>
 						            <!-- <button id="export-button">Export</button> -->
 									<a><input id="export-button" type="submit" value="Export Collage"  onclick="return exportPdf()"></a>
-									
-						            <button id="save-button">Save to Gallery</button>
+									<form id="saveform" method="GET" action="SaveServlet">
+						            		<button id="save-button">Save to Gallery</button>
+						            </form>
 						        </div>
 			         		</td>
 		        			</tr>
@@ -131,6 +137,8 @@
 								<div class="saved-img-div"><img class="saved-img" src="logo.png"></div>
 							</div>
 						</div>
+						<img id="example-image" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(0) %>">
+
 				</td>
 			</tr>
 		</table>

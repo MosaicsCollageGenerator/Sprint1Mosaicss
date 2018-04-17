@@ -1,7 +1,6 @@
 package test.java;
 
 import main.java.service.ImageService;
-import main.java.service.Tester;
 import org.junit.Test;
 
 import java.awt.image.BufferedImage;

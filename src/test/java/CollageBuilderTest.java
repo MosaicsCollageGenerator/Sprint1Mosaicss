@@ -1,7 +1,6 @@
 package test.java;
 
 import main.java.builder.CollageBuilder;
-import main.java.service.Tester;
 import org.junit.Test;
 
 import javax.imageio.ImageIO;
