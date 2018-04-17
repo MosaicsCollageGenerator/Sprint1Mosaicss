@@ -32,7 +32,7 @@
 	display: block;
 	margin: 10px 0px 10px 0px;
 	background-color: #A1A8AC;
-    color: #F1F5F7; 
+    color: #F1F5F7;
     border: 3px solid #a1a1a1;
     padding: 10px;
 }
@@ -58,16 +58,16 @@ body {
 }
 
 /* .selectdiv {
-  
+
   float: left;
   min-width: 100px;
   margin: 50px 33%;
 }
- 
+
 select::-ms-expand {
      display: none;
 }
- 
+
 .selectdiv:after {
   content: '<>';
   font: 17px "Consolas", monospace;
@@ -78,22 +78,22 @@ select::-ms-expand {
   transform: rotate(90deg);
   right: 15px;
   Adjust for position however you want
-  
+
   top: 45px;
   padding: 0 0 2px;
   border-bottom: 1px solid #999;
   left line
-  
+
   position: absolute;
   pointer-events: none;
 }
- 
+
 .selectdiv select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   Add some styling
-  
+
   display: block;
   width: 100%;
   max-width: 320px;
@@ -111,7 +111,7 @@ select::-ms-expand {
   word-break: normal;
 }  */
 
-/* 
+/*
 table {
 	width: 100%;
 	height: 100%
@@ -125,7 +125,7 @@ table {
 #previous-collages {
 	position: relative;
 	overflow-x: scroll;
-   	overflow-y: hidden;   
+   	overflow-y: hidden;
 	height: 230px;
 	width: 90%;
 	border: 1px solid black;
@@ -153,7 +153,7 @@ tr, table, td {
 	width: 20%;
 }
 
-#export-column 
+#export-column
 {
 	width:20%;
 }
@@ -164,7 +164,7 @@ tr, table, td {
 	display: block;
 	margin-bottom: 10px;
 	background-color: #A1A8AC;
-    color: #F1F5F7; 
+    color: #F1F5F7;
     border: 3px solid #a1a1a1;
     padding: 10px;
 }
@@ -175,7 +175,7 @@ tr, table, td {
 	display: block;
 }
 
-#build-another-button 
+#build-another-button
 {
 	margin: 20px 0px 20px 0px;
 }
@@ -190,13 +190,13 @@ tr, table, td {
 #collage-history {
 	position: relative;
 	overflow-x: scroll;
-   	overflow-y: hidden;   
+   	overflow-y: hidden;
 	height: 230px;
 	width: 700px;
- 	border: 1px solid black; 
+ 	border: 1px solid black;
  	margin-top: 20px;
 	margin-bottom: 20px;
-	margin-left: 40%; 
+	margin-left: 40%;
 	white-space: nowrap;
 	display: inline-block;
 }
@@ -209,17 +209,17 @@ tr, table, td {
 .selectdiv {
   position: relative;
   Don't really need this just for demo styling
-  
+
   float: left;
   min-width: 100px;
   margin: 50px 33%;
 }
- 
+
 To remove button from IE11, thank you Matt
 select::-ms-expand {
      display: none;
 }
- 
+
 .selectdiv:after {
   content: '<>';
   font: 17px "Consolas", monospace;
@@ -230,22 +230,22 @@ select::-ms-expand {
   transform: rotate(90deg);
   right: 15px;
   Adjust for position however you want
-  
+
   top: 45px;
   padding: 0 0 2px;
   border-bottom: 1px solid #999;
   left line
-  
+
   position: absolute;
   pointer-events: none;
 }
- 
+
 .selectdiv select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   Add some styling
-  
+
   display: block;
   width: 100%;
   max-width: 320px;
@@ -261,4 +261,10 @@ select::-ms-expand {
   border: 1px solid #cccccc;
   -ms-word-break: normal;
   word-break: normal;
-} */
+}
+
+#galleryTable{
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }

@@ -35,7 +35,8 @@ public class SaveServlet extends HttpServlet {
 		System.out.println("user id in saveservlet is: " +  user_id);
 		//System.out.println("THIS IS SESSION: " +title + " " + src + " " + user_id);
 		CollageRepository users = new CollageRepository();
-		
+		System.out.println("saving the collage");
+		System.out.println(src);
 		Collage c = new Collage(title,src,user_id);
 		
 		users.saveCollage(c);

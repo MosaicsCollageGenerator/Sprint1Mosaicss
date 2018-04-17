@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MOSAICS</title>
         <link rel="stylesheet" type="text/css" href="base.css?v=3">
-        <link rel="stylesheet" type="text/css" href="display.css?v=2">
+        <link rel="stylesheet" type="text/css" href="display.css?v=1">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -32,7 +32,7 @@
 	                });
 				}
 			}
-			
+
 			$
         </script>
         <%
@@ -41,7 +41,7 @@
     </head>
 
     <body>
-    
+
     			<div class="title"> Collage for topic <%=(String)session.getAttribute("topic") %></div>
     			<div class="container">
     				<div class="contents">
@@ -52,7 +52,7 @@
     					<div class="export">
 <!--     						<div class="selectdiv"> -->
     							<div>Export as:</div>
-    						
+
 	    						<select id="exportvalue">
 	    							<option selected="selected">.png </option>
 	    							<option>.pdf </option>
@@ -62,27 +62,27 @@
     					</div>
     				</div>
     			</div>
-    			
+
     			<div class="buttons">
     				<button>Save to Gallery</button>
     				<button id="build-another-button" onclick="location.href='index.jsp'">Build Another Collage</button>
     			</div>
-    			
+
     			<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
 			<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
-			
-			<div id="gallery-title">Gallery:</div> 
-			
+
+			<div id="gallery-title">Gallery:</div>
+
 			<div class="gallery">
 				<img class="gallery-pic" src="error.png" onclick="changeImg()">
 				<img class="gallery-pic" src="logo.png">
 				<img class="gallery-pic" src="loadingimage.gif">
 				<img class="gallery-pic" src="logo.png">
 			</div>
-    			
+
 <%-- 		<table id="layout">
 			<tr>
-			
+
 				<td colspan="3" id="title-row">
 					<h1 id="display-title">Collage for topic <%=(String)session.getAttribute("topic") %> </h1>
 				</td>
@@ -126,22 +126,37 @@
 					</table>
 				</td>
 			</tr>
-			<tr>
-				<td colspan="3">
+			</table>
+			<label>Gallery:</label><br />
+			<table id = "galleryTable">
+			<tr colspan = "3">
+						<tr>
+					    <% for(int i = 0; i < ((ArrayList<String>)session.getAttribute("collages")).size(); i+=1) { %>
+					        <td>
+					        		<img id="example-image" width="100" height="100" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(i) %>">
+					    		</td>
+					    <% } %>
+						</tr>
+			</tr>
+
+			</table>
+<%-- 			<tr colspan = "3">
+				<td>
 					<label>Gallery:</label><br />
-						<div id="previous-collages">
-							<div>
-								<div class="saved-img-div"><img class="saved-img" src="logo.png"></div>
-								<div class="saved-img-div"><img class="saved-img" src="logo.png"></div>
-								<div class="saved-img-div"><img class="saved-img" src="logo.png"></div>
-								<div class="saved-img-div"><img class="saved-img" src="logo.png"></div>
-							</div>
-						</div>
-						<img id="example-image" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(0) %>">
+						<tr>
+					    <% for(int i = 0; i < ((ArrayList<String>)session.getAttribute("collages")).size(); i+=1) { %>
+					        <tr>
+					            <td><%=allFestivals.get(i).getFestivalName()%></td>
+					        </tr>
+					        <td>
+					        		<img id="example-image" width="100" height="100" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(i) %>">
+					    		</td>
+					    <% } %>
+						</tr>
 
 				</td>
 			</tr>
-		</table>
+		</table> --%>
 		<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
 		<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a> --%>
     </body>

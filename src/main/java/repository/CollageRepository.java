@@ -110,6 +110,8 @@ public class CollageRepository {
                 String src = null;
                // Blob b = rs.getBlob("src");//cast with (Blob) if required. Blob from resultSet as rs.getBlob(index).
                 //InputStream bis = b.getBinaryStream();
+                
+                
                 InputStream binaryStream = rs.getBinaryStream("src");
                 Scanner s = new Scanner(binaryStream);
                 src = s.hasNext() ? s.next() : "";
@@ -134,26 +136,27 @@ public class CollageRepository {
 //        		System.out.println("THIS IS THE SOURCE");
 //        		System.out.println(collage.getSrc());
 //        		String base64Image = collage.getSrc().split(",")[1];
+        	/*
         		String base64Image = collage.getSrc();
         		byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
         		BufferedImage img = ImageIO.read(new ByteArrayInputStream(imageBytes));
-
+*/
+        	/*
         		File outputfile = new File("collage.jpg");
         		ImageIO.write(img, "jpg", outputfile);
         		fis = new FileInputStream(outputfile);
+        		*/
+        		InputStream stream = new ByteArrayInputStream(collage.getSrc().getBytes(StandardCharsets.UTF_8));
         		System.out.println("THIS IS COLLAGE USER IS: "+collage.getUserId());
         		pstmt.setString(1, collage.getTitle());
-            pstmt.setBinaryStream(2,fis,(int) outputfile.length());
+            //pstmt.setBinaryStream(2,fis,(int) outputfile.length());
+        		pstmt.setBinaryStream(2,stream);
             pstmt.setString(3, collage.getUserId());
             pstmt.executeUpdate();
             System.out.println("FINISHED SAVING");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } catch (FileNotFoundException e) {
-        	 System.out.println(e.getMessage());
-        } catch (IOException e) {
-			e.printStackTrace();
-		}
+        }
     }
 
     public void resetDatabase() {
