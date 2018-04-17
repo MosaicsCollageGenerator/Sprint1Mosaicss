@@ -19,7 +19,7 @@
 					$('#hey').click();
 				} else {
 					var imgData;
-					html2canvas($("#example-image"), {
+					html2canvas($("#collage-pic"), {
 	                    useCORS: true,
 	                    onrendered: function (canvas) {
 	                        imgData = canvas.toDataURL(
@@ -31,11 +31,52 @@
 	                });
 				}
 			}
+			
+			$
         </script>
     </head>
     
     <body>
-		<table>
+    
+    			<div class="title"> Collage for topic <%=(String)session.getAttribute("topic") %></div>
+    			<div class="container">
+    				<div class="contents">
+    					<div class="spacer">&nbsp;</div>
+    					<div class="collage">
+    						<img id="collage-pic" src="logo.png"><%-- src="data:image/png;base64, <%=(String)session.getAttribute("collage") %>" --%>>
+    					</div>
+    					<div class="export">
+<!--     						<div class="selectdiv"> -->
+    							<div>Export as:</div>
+    						
+	    						<select id="exportvalue">
+	    							<option selected="selected">.png </option>
+	    							<option>.pdf </option>
+	    						</select>
+<!--     						</div> -->
+							<a><input id="export-button" type="submit" value="Export Collage"  onclick="return exportPdf()"></a>
+    					</div>
+    				</div>
+    			</div>
+    			
+    			<div class="buttons">
+    				<button>Save to Gallery</button>
+    				<button id="build-another-button" onclick="location.href='index.jsp'">Build Another Collage</button>
+    			</div>
+    			
+    			<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
+			<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
+			
+			<div id="gallery-title">Gallery:</div> 
+			
+			<div class="gallery">
+				<img class="gallery-pic" src="error.png" onclick="changeImg()">
+				<img class="gallery-pic" src="logo.png">
+				<img class="gallery-pic" src="loadingimage.gif">
+				<img class="gallery-pic" src="logo.png">
+			</div>
+    			
+<%-- 		<table id="layout">
 			<tr>
 				<td colspan="3" id="title-row">
 					<h1 id="display-title">Collage for topic <%=(String)session.getAttribute("topic") %> </h1>
@@ -79,15 +120,21 @@
 					</table>
 				</td>
 			</tr>
-			<tr colspan = "3">
-				<td>
+			<tr>
+				<td colspan="3">
 					<label>Gallery:</label><br />
-						
-					
+						<div id="previous-collages">
+							<div>
+								<div class="saved-img-div"><img class="saved-img" src="logo.png"></div>
+								<div class="saved-img-div"><img class="saved-img" src="logo.png"></div>
+								<div class="saved-img-div"><img class="saved-img" src="logo.png"></div>
+								<div class="saved-img-div"><img class="saved-img" src="logo.png"></div>
+							</div>
+						</div>
 				</td>
 			</tr>
 		</table>
 		<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
-		<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
+		<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a> --%>
     </body>
 </html>
