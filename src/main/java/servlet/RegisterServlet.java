@@ -43,21 +43,22 @@ public class RegisterServlet extends HttpServlet {
 			session.setAttribute("registerError", "Username taken");
 			request.getRequestDispatcher("/register.jsp").forward(request, response);
 			
-		} 
-		User newUser = new User(Integer.toString(users.getNumUsers()),username,hashedPassword);
-		users.saveUser(newUser);
-		session.setAttribute("userID", newUser.getId());
-		//HttpSession session = request.getSession();
-		if(newUser != null) {
+		} else {
+			User newUser = new User(Integer.toString(users.getNumUsers()),username,hashedPassword);
+			users.saveUser(newUser);
 			session.setAttribute("userID", newUser.getId());
-			session.setAttribute("username", newUser.getUsername());
+			//HttpSession session = request.getSession();
+			if(newUser != null) {
+				session.setAttribute("userID", newUser.getId());
+				session.setAttribute("username", newUser.getUsername());
+				session.setAttribute("errorMessage", "");
+				request.getRequestDispatcher("/options.jsp").forward(request, response);
+			} 
+			session.setAttribute("registerError", "");
 			session.setAttribute("errorMessage", "");
 			request.getRequestDispatcher("/options.jsp").forward(request, response);
-		} 
-		session.setAttribute("registerError", "");
-		session.setAttribute("errorMessage", "");
-		request.getRequestDispatcher("/options.jsp").forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+			response.getWriter().append("Served at: ").append(request.getContextPath());
+		}
 	}
 
 	

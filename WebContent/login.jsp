@@ -8,7 +8,12 @@
     if(err == null) {
             err = "";
     }
+    session.removeAttribute("collages");
+    session.removeAttribute("titles");
+    session.removeAttribute("userID");
+    session.removeAttribute("username");
     %>
+    
         <title>Mosaics Login</title>
         <link rel="stylesheet" type="text/css" href="base.css?v=2">
         <link rel="stylesheet" type="text/css" href="login.css?v=2">

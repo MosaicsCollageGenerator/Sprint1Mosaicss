@@ -1,6 +1,8 @@
 package main.java.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import main.java.model.Collage;
 import main.java.model.User;
+import main.java.repository.CollageRepository;
 import main.java.repository.UserRepository;
 import main.java.service.AuthenticationService;
 
@@ -50,6 +54,17 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("userID", currentUser.getId());
 				session.setAttribute("username", currentUser.getUsername());
 				session.setAttribute("errorMessage", "");
+				CollageRepository collageRepo = new CollageRepository();
+				List<Collage> collages = collageRepo.getAllCollageFromUser(currentUser.getId());
+				List<String> collages_src = new ArrayList<>();
+				List<String> titles = new ArrayList<>();
+				for (Collage co: collages) {
+					collages_src.add(co.getSrc());
+					titles.add(co.getTitle());
+				}
+				System.out.println("I HAVE " + collages_src.size() + " COLLAGES SAVED");
+				session.setAttribute("collages", collages_src);
+				session.setAttribute("titles", titles);
 				request.getRequestDispatcher("/options.jsp").forward(request, response);
 			} 
 			else {

@@ -10,6 +10,16 @@
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     </head>
     <body>
+    <%@ page import="java.util.ArrayList" %>
+    		<%
+    		ArrayList<String> collages = ((ArrayList<String>) session.getAttribute("collages"));
+	        if (collages == null) {
+	        		System.out.println("NO PREVIOUS COLLAGES");
+	        } else {
+	        		System.out.println("PREVIOUS COLLAGES EXISTS");
+	        }
+    		%>
+	    
     		<div class="container">
     			<div id="options-wrap" class="wrapper">
 		        <div id="content">

@@ -44,12 +44,14 @@ public class SaveServlet extends HttpServlet {
 		CollageRepository cr = new CollageRepository();
 		ArrayList<Collage> collages = (ArrayList<Collage>) cr.getAllCollageFromUser(user_id);
 		ArrayList<String> collages_src = new ArrayList<>();
+		ArrayList<String> titles = new ArrayList<>();
 		for (Collage co : collages) {
 			collages_src.add(co.getSrc());
+			titles.add(co.getTitle());
 		}
-
+		
 		session.setAttribute("collages", collages_src);
-		System.out.println(collages.get(0));
+		session.setAttribute("titles", titles);
 		request.getRequestDispatcher("/display.jsp").forward(request, response);
 	}
 

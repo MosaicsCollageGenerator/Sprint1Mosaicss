@@ -37,17 +37,51 @@
         </script>
         <%
         ArrayList<String> collages = ((ArrayList<String>) session.getAttribute("collages"));
+        ArrayList<String> titles = ((ArrayList<String>) session.getAttribute("titles"));
         %>
     </head>
 
     <body>
-
-    			<div class="title"> Collage for topic <%=(String)session.getAttribute("topic") %></div>
+			<%
+				if (session.getAttribute("collage") != null) {
+			%>
+					<div class="title"> Collage for topic <%=(String)session.getAttribute("topic") %></div>
+			<% 		
+				} else {
+					if (collages != null && collages.size() > 0) {
+			%>
+					<div class="title"> Collage for topic <%=titles.get(0)%></div>
+			<% 
+					} else {
+			%>
+					<div class="title">Please build a collage!</div>
+			<%
+					}
+				}
+			%>
+    			
     			<div class="container">
     				<div class="contents">
     					<div class="spacer">&nbsp;</div>
     					<div class="collage">
-    						<img id="collage-pic" src="data:image/png;base64, <%=(String) session.getAttribute("collage") %>" >
+    						<%
+    							if (session.getAttribute("collage") != null) {
+    						%>
+    								<img id="collage-pic" src="data:image/png;base64, <%=(String) session.getAttribute("collage") %>" >
+    						<% 		
+    							} else {
+    								if (collages != null && collages.size() > 0) {
+    						%>
+    								<img id="collage-pic" src="data:image/png;base64, <%=collages.get(0)%>" >
+    						<% 
+    								} else {
+    						%>
+    								<img src="logo.png">
+    						<%
+    								}
+    							}
+    						%>
+    						
     					</div>
     					<div class="export">
 <!--     						<div class="selectdiv"> -->
@@ -64,7 +98,9 @@
     			</div>
 
     			<div class="buttons">
-    				<button>Save to Gallery</button>
+    				<form id="saveform" method="GET" action="SaveServlet">
+					<button id="save-button">Save to Gallery</button>
+				</form>
     				<button id="build-another-button" onclick="location.href='index.jsp'">Build Another Collage</button>
     			</div>
 
@@ -74,9 +110,15 @@
 			<div id="gallery-title">Gallery:</div>
 
 			<div class="gallery" id = galleryTable>
-					    <% for(int i = 0; i < ((ArrayList<String>)session.getAttribute("collages")).size(); i+=1) { %>
-					        	<img id="example-image" width="100" height="100" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(i) %>">
-					    <% } %>
+					    <%
+				    if (collages != null) {
+					    	for(int i = 0; i < ((ArrayList<String>)session.getAttribute("collages")).size(); i+=1) { 
+					    		
+					    	%>
+				        	<img id=<%=titles.get(i) %> width="100" height="100" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(i) %>">
+				    			<% } 	
+				    }
+					    %>
 			</div>
 <%-- 		<table id="layout">
 			<tr>
