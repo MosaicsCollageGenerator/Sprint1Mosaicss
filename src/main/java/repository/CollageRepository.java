@@ -97,8 +97,8 @@ public class CollageRepository {
         return collage;
     }
 
-    public List<String> getAllCollageFromUser(String user_id) {
-        List<String> allCollage = new ArrayList<>();
+    public List<Collage> getAllCollageFromUser(String user_id) {
+        List<Collage> allCollage = new ArrayList<>();
         String sql = "SELECT * FROM Collage WHERE user_id='" + user_id+ "'";;
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
@@ -117,8 +117,9 @@ public class CollageRepository {
                 src = s.hasNext() ? s.next() : "";
                 //ObjectInputStream ois = new ObjectInputStream(binaryStream);
                 //src= (String) ois.readObject();
-
-                allCollage.add(src);
+                Collage newCollage = new Collage(id, title, src, user_id);
+                allCollage.add(newCollage);
+//                allCollage.add(src);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

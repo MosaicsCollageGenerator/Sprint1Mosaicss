@@ -42,8 +42,13 @@ public class SaveServlet extends HttpServlet {
 		users.saveCollage(c);
 		System.out.println("FINISHED SAVING");
 		CollageRepository cr = new CollageRepository();
-		ArrayList<String> collages = (ArrayList<String>) cr.getAllCollageFromUser(user_id);
-		session.setAttribute("collages", collages);
+		ArrayList<Collage> collages = (ArrayList<Collage>) cr.getAllCollageFromUser(user_id);
+		ArrayList<String> collages_src = new ArrayList<>();
+		for (Collage co : collages) {
+			collages_src.add(co.getSrc());
+		}
+
+		session.setAttribute("collages", collages_src);
 		System.out.println(collages.get(0));
 		request.getRequestDispatcher("/display.jsp").forward(request, response);
 	}

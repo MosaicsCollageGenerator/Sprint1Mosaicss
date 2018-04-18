@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import main.java.model.User;
 import main.java.repository.UserRepository;
+import main.java.service.AuthenticationService;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -33,7 +34,7 @@ public class RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-
+		String hashedPassword = AuthenticationService.hashPassword(password);
 		UserRepository users = new UserRepository();
 		User currentUser = users.findByUsername(username);
 		
@@ -43,21 +44,15 @@ public class RegisterServlet extends HttpServlet {
 			request.getRequestDispatcher("/register.jsp").forward(request, response);
 			
 		} 
-		User newUser = new User(Integer.toString(users.getNumUsers()),username,password);
+		User newUser = new User(Integer.toString(users.getNumUsers()),username,hashedPassword);
 		users.saveUser(newUser);
 		session.setAttribute("userID", newUser.getId());
 		//HttpSession session = request.getSession();
 		if(newUser != null) {
-			if(newUser.getPassword().equals(password)) {
-				session.setAttribute("userID", newUser.getId());
-				session.setAttribute("username", newUser.getUsername());
-				session.setAttribute("errorMessage", "");
-				request.getRequestDispatcher("/options.jsp").forward(request, response);
-			} 
-			else {
-				session.setAttribute("errorMessage", "Incorrect Password");
-				request.getRequestDispatcher("/login.jsp").forward(request, response);
-			}
+			session.setAttribute("userID", newUser.getId());
+			session.setAttribute("username", newUser.getUsername());
+			session.setAttribute("errorMessage", "");
+			request.getRequestDispatcher("/options.jsp").forward(request, response);
 		} 
 		session.setAttribute("registerError", "");
 		session.setAttribute("errorMessage", "");

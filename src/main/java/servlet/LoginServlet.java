@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import main.java.model.User;
 import main.java.repository.UserRepository;
+import main.java.service.AuthenticationService;
 
 /**
  * Servlet implementation class LoginServlet
@@ -44,7 +45,7 @@ public class LoginServlet extends HttpServlet {
 		
 		//HttpSession session = request.getSession();
 		if(currentUser != null) {
-			if(currentUser.getPassword().equals(password)) {
+			if(AuthenticationService.checkPassword(currentUser, password)) {
 				System.out.println("I AM SETTING ATTRIBUTES " + currentUser.getId());
 				session.setAttribute("userID", currentUser.getId());
 				session.setAttribute("username", currentUser.getUsername());
