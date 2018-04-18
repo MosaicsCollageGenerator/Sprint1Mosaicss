@@ -1,8 +1,9 @@
 Given(/^I am on collage display page testing history$/) do
-	visit "http:localhost:8080/Mosaicss/"
-	fill_in('search_text', :with => 'cat')
-	fill_in('shape_text', :with=> 'meow')
-	click_button("build-button")
+	visit "http:localhost:8080/Mosaicss/login.jsp"
+	fill_in('username', :with => 'halfond')
+	fill_in('password', :with=> 'password')
+	click_button("Login")
+	click_button("See Collage History")
 end
 
 Then(/^I should see a gallery selector$/) do
@@ -14,7 +15,7 @@ When(/^I click on Save to Gallery$/) do
 end
 
 Then(/^I should see the id of the image in gallery$/) do
-  page.should have_content('#cat')
+  page.should have_css('#cat')
 end
 
 When(/^I click on cat image in Gallery$/) do
@@ -22,5 +23,5 @@ When(/^I click on cat image in Gallery$/) do
 end
 
 Then(/^I should see cat collage be displayed$/) do
-  page.should have_content('#cat')
+  page.should have_css('#cat')
 end

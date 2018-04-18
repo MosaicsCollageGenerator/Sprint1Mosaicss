@@ -6,13 +6,14 @@ mysql -u root --password=root -e "CREATE TABLE Mosaicss.User (
   password varchar(255) DEFAULT NULL,
   PRIMARY KEY (id)
 );"
+mysql -u root --password=root -e "INSERT INTO Mosaicss.User (id, username, password) VALUES(1,'test','test');"
 mysql -u root --password=root -e "CREATE TABLE Mosaicss.Collage  (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  title varchar(100) DEFAULT NULL,
-  src varchar(255) DEFAULT NULL,
-  user_id int(11) DEFAULT NULL,
-  PRIMARY KEY (id),
-  CONSTRAINT fk_user FOREIGN KEY (user_id)
-  REFERENCES Mosaicss.User(id)
+ id int(11) NOT NULL AUTO_INCREMENT,
+ title varchar(100) DEFAULT NULL,
+ src longblob DEFAULT NULL,
+ user_id int(11) DEFAULT NULL,
+ PRIMARY KEY (id),
+ CONSTRAINT fk_user FOREIGN KEY (user_id)
+ REFERENCES User(id)
 );
 "

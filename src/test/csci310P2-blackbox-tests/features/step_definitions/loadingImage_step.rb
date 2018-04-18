@@ -1,5 +1,9 @@
 Given(/^I am on the build collage page testing loading image$/) do
-  visit "http:localhost:8080/Mosaicss/"
+	visit "http:localhost:8080/Mosaicss/login.jsp"
+	fill_in('username', :with => 'halfond')
+	fill_in('password', :with=> 'password')
+	click_button("Login")
+	click_button("Build Collage")
 end
 
 When(/^I fill in the topic with cat - loading$/) do

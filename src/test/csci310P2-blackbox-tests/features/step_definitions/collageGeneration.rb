@@ -16,5 +16,6 @@ And(/^I press Build Collage - generate$/) do
 end
 
 Then(/^I should see a collage with cat$/) do
-  expect(page).to have_content("Collage for topic cat")
+	click_button("Save to Gallery")
+  	expect(page).to have_content("Collage for topic cat")
 end
