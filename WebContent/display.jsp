@@ -32,8 +32,18 @@
 	                });
 				}
 			}
-
-			$
+        </script>
+        <script type="text/javascript">
+	        function changeDisplayedImage(i) {
+	        		
+				newImage = (document.getElementByClassName(".\\"+ i)).src;
+				
+				document.querySelector('#collage-pic').src = newImage;
+				
+				newTopic = document.getElementByClassName(".\\"+i).id;
+				
+				document.querySelector('.title').innerHTML = newTopic;
+			}
         </script>
         <%
         ArrayList<String> collages = ((ArrayList<String>) session.getAttribute("collages"));
@@ -115,7 +125,7 @@
 					    	for(int i = 0; i < ((ArrayList<String>)session.getAttribute("collages")).size(); i+=1) { 
 					    		
 					    	%>
-				        	<img id=<%=titles.get(i) %> width="100" height="100" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(i) %>">
+				        	<img id=<%=titles.get(i)%> class=<%=i%> width="100" height="100" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(i) %>" onclick=changeDisplayedImage(<%=i%>)>
 				    			<% } 	
 				    }
 					    %>

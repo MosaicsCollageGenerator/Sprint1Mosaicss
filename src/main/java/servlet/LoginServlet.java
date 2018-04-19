@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
 					collages_src.add(co.getSrc());
 					titles.add(co.getTitle());
 				}
-				System.out.println("I HAVE " + collages_src.size() + " COLLAGES SAVED");
+				System.out.println("I HAVE " + collages_src.size() + " COLLAGES SAVED in loginservlet");
 				session.setAttribute("collages", collages_src);
 				session.setAttribute("titles", titles);
 				request.getRequestDispatcher("/options.jsp").forward(request, response);
