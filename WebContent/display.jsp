@@ -224,7 +224,7 @@
 
     			<div class="buttons">
     				<form id="saveform" method="GET" action="SaveServlet">
-					<button id="save-button" hidden>Save to Gallery</button>
+					<button id="save-button">Save to Gallery</button>
 				</form>
     				<button id="build-another-button" onclick="location.href='display.jsp'" hidden>Build Another Collage</button>
     			</div>

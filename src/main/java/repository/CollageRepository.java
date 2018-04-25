@@ -147,14 +147,14 @@ public class CollageRepository {
         		ImageIO.write(img, "jpg", outputfile);
         		fis = new FileInputStream(outputfile);
         		*/
-//        		InputStream stream = new ByteArrayInputStream(collage.getSrc().getBytes(StandardCharsets.UTF_8));
-//        		System.out.println("THIS IS COLLAGE USER IS: "+collage.getUserId());
-//        		pstmt.setString(1, collage.getTitle());
-//            //pstmt.setBinaryStream(2,fis,(int) outputfile.length());
-//        		pstmt.setBinaryStream(2,stream);
-//            pstmt.setString(3, collage.getUserId());
-//            pstmt.executeUpdate();
-//            System.out.println("FINISHED SAVING");
+        		InputStream stream = new ByteArrayInputStream(collage.getSrc().getBytes(StandardCharsets.UTF_8));
+        		System.out.println("THIS IS COLLAGE USER IS: "+collage.getUserId());
+        		pstmt.setString(1, collage.getTitle());
+            //pstmt.setBinaryStream(2,fis,(int) outputfile.length());
+        		pstmt.setBinaryStream(2,stream);
+            pstmt.setString(3, collage.getUserId());
+            pstmt.executeUpdate();
+            System.out.println("FINISHED SAVING");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

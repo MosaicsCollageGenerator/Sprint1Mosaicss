@@ -71,7 +71,7 @@ public class BuildServlet extends HttpServlet {
 //		Boolean rotation = true;
 //		Boolean border = true;
 		
-		
+		System.out.println("rotation: "+ rotation+ " border: "+border);
 		
 		
 		CollageBuilder collageBuilder = new CollageBuilder.Builder(topic, shape,height,width,filter,rotation,border,testing).build();
