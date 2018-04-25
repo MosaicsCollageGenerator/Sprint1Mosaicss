@@ -27,7 +27,7 @@
                             <img src="logo.png">
                         </div>
                         <div id="content"> 
-                                <b style="text-align:center;color:red;"><%out.print(err); %></b><br />
+                            <b style="text-align:center;color:red;"><%out.print(err); %></b><br />
                             <label for="username"><b>Username</b></label>
                             <input class="input" placeholder="Enter username" type="text" name="username" align="center" /><br>
                             

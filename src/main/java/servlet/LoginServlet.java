@@ -65,7 +65,7 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("I HAVE " + collages_src.size() + " COLLAGES SAVED in loginservlet");
 				session.setAttribute("collages", collages_src);
 				session.setAttribute("titles", titles);
-				request.getRequestDispatcher("/options.jsp").forward(request, response);
+				request.getRequestDispatcher("/display.jsp").forward(request, response);
 			} 
 			else {
 				session.setAttribute("errorMessage", "Incorrect Password");

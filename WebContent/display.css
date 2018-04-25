@@ -27,6 +27,10 @@
 	display: inline-flex;
 }
 
+#saveform {
+	display: inline;
+}
+
 #export-button {
 	width: 106px;
 	display: block;
@@ -45,85 +49,36 @@
 	margin: 10px;
 }
 
+.spacer {
+	margin-left: 10px;
+	margin-right: 25px;
+	text-align: left;
+}
+
+.spacer > div > div > label {
+	display: inline-block;
+	min-width: 67px;
+}
+
+.label-divs {
+	margin-bottom: 5px;
+}
+
 .spacer, .export {
-	min-width: 100px;
+	min-width: 205px;
 }
 
 .export {
 	text-align: left;
-	margin-left: 10px;
+	margin-left: 25px;
+	margin-right: 10px;
 }
 
 body {
 	margin: 0;
 }
 
-/* .selectdiv {
-
-  float: left;
-  min-width: 100px;
-  margin: 50px 33%;
-}
-
-select::-ms-expand {
-     display: none;
-}
-
-.selectdiv:after {
-  content: '<>';
-  font: 17px "Consolas", monospace;
-  color: #333;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  right: 15px;
-  Adjust for position however you want
-
-  top: 45px;
-  padding: 0 0 2px;
-  border-bottom: 1px solid #999;
-  left line
-
-  position: absolute;
-  pointer-events: none;
-}
-
-.selectdiv select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  Add some styling
-
-  display: block;
-  width: 100%;
-  max-width: 320px;
-  height: 50px;
-  float: right;
-  margin: 5px 0px;
-  padding: 0px 24px;
-  font-size: 16px;
-  line-height: 1.75;
-  color: #333;
-  background-color: #ffffff;
-  background-image: none;
-  border: 1px solid #cccccc;
-  -ms-word-break: normal;
-  word-break: normal;
-}  */
-
-/*
-table {
-	width: 100%;
-	height: 100%
-}
-
-#display-collage {
-	text-align: center;
-}
-
-
-#previous-collages {
+/* #previous-collages {
 	position: relative;
 	overflow-x: scroll;
    	overflow-y: hidden;
@@ -143,15 +98,6 @@ table {
 .saved-img-div {
 	display: inline-block;
 	margin: 10px 10px 0px 10px;
-}
-
-tr, table, td {
-	border: 1px solid black; REMOVE LATER
-}
-
-#buffer-column
-{
-	width: 20%;
 }
 
 #export-column
@@ -187,7 +133,6 @@ tr, table, td {
 	width:400px;
 }
 
-
 #collage-history {
 	position: relative;
 	overflow-x: scroll;
@@ -204,68 +149,4 @@ tr, table, td {
 
 #title-row {
 	text-align: center;
-}
-
-
-.selectdiv {
-  position: relative;
-  Don't really need this just for demo styling
-
-  float: left;
-  min-width: 100px;
-  margin: 50px 33%;
-}
-
-To remove button from IE11, thank you Matt
-select::-ms-expand {
-     display: none;
-}
-
-.selectdiv:after {
-  content: '<>';
-  font: 17px "Consolas", monospace;
-  color: #333;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  right: 15px;
-  Adjust for position however you want
-
-  top: 45px;
-  padding: 0 0 2px;
-  border-bottom: 1px solid #999;
-  left line
-
-  position: absolute;
-  pointer-events: none;
-}
-
-.selectdiv select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  Add some styling
-
-  display: block;
-  width: 100%;
-  max-width: 320px;
-  height: 50px;
-  float: right;
-  margin: 5px 0px;
-  padding: 0px 24px;
-  font-size: 16px;
-  line-height: 1.75;
-  color: #333;
-  background-color: #ffffff;
-  background-image: none;
-  border: 1px solid #cccccc;
-  -ms-word-break: normal;
-  word-break: normal;
-}
-
-#galleryTable{
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
+} */

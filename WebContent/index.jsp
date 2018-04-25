@@ -44,85 +44,75 @@
 				<img id="loading-image" src ="loadinggif.gif" >
 			</div>
 	        <div id="index-wrap" class="wrapper" style ="display:block;">
-	        <h1 id="titletext">Collage Builder</h1>
-	            <form id="searchform" method="GET" action="build" onsubmit="return validateForms()">
-	            		
-	                <!--Topic text input-->
-	                <div class="label-divs">
-	                <label>Topic</label>
-	                <input type="text" id="search_text" name="search_text" placeholder="Enter topic"> <br />
-	                </div>
-	                
-	                <div class="label-divs">
-	                <!--Shape text input  -->
-	                <label>Shape</label>
-	                <input type="text" id="shape_text" name="shape_text" placeholder="Enter shape"> <br />
-	                </div>
-	                
-	                <div class="label-divs">
-	                <!--Height drop down  -->
-	                <label>Height</label>
-	                <select name="heightvalue" id="height_value">
-	                  <option value="300">300</option>
-	                  <option value="400">400</option>
-	                  <option value="500">500</option>
-	                  <option value="600">600</option>
-	                  <option value="700">700</option>
-	                  <option value="800">800</option>
-	                  <option value="900">900</option>
-	                  <option value="1000">1000</option>
-	                </select><br />
-	                </div>
-	                
-	                <div class="label-divs">
-	                <!--Width drop down  -->
-	                <label>Width</label>
-	                <select name="widthvalue" id="width_value">
-	                  <option value="500">500</option>
-	                  <option value="600">600</option>
-	                  <option value="700">700</option>
-	                  <option value="800">800</option>
-	                  <option value="900">900</option>
-	                  <option value="1000">1000</option>
-	                  <option value="1100">1100</option>
-	                  <option value="1200">1200</option>
-	                </select><br />
-	                </div>
-	                
-	                <div class="label-divs">
-	                <label>Filter: </label>
-	                
-	                <!--Filter Radio buttons  -->
-	                <input type="radio" id="none"
-	                 name="filter" value="0" checked="checked">
-	                <label for="none">None</label>
-	            
-	                <input type="radio" id="sepia"
-	                 name="filter" value="1">
-	                <label for="sepia">Sepia</label>
-	            
-	                <input type="radio" id="bandw"
-	                 name="filter" value="2">
-	                <label for="bandw">Black & White</label>
-	                
-	                <input type="radio" id="grey"
-	                 name="filter" value="3">
-	                <label for="grey">Grey</label> <br />
-	                </div>
-	                
-	                <div class="label-divs">
-	                <!--Border checkbox  -->
-	                    <label>Border</label>
-	                <input type= "checkbox" id="border" name="border"/> <br />
-	                </div>
-	                
-	                <div class="label-divs">
-	                <label>Rotation</label>
-	                <input type= "checkbox" id="rotation" name="rotation"/> <br />
-	                </div>
-	                   
-	                <input type="submit" id="build-button" value="Build Collage"/>	                
-	            </form>
+		        <h1 id="titletext">Collage Builder</h1>
+		            <form id="searchform" method="GET" action="build" onsubmit="return validateForms()">
+		            		
+		                <!--Topic text input-->
+		                <div class="label-divs">
+		                <label>Topic</label>
+		                <input type="text" id="search_text" name="search_text" placeholder="Enter topic"> <br />
+		                </div>
+		                
+		                <div class="label-divs">
+		                <!--Shape text input  -->
+		                <label>Shape</label>
+		                <input type="text" id="shape_text" name="shape_text" placeholder="Enter shape"> <br />
+		                </div>
+		                
+		                <div class="label-divs">
+		                <!--Height drop down  -->
+		                <label>Height</label>
+		                <select name="heightvalue" id="height_value">
+		                  <option value="300">300</option>
+		                  <option value="400">400</option>
+		                  <option value="500">500</option>
+		                  <option value="600">600</option>
+		                  <option value="700">700</option>
+		                  <option value="800">800</option>
+		                  <option value="900">900</option>
+		                  <option value="1000">1000</option>
+		                </select><br />
+		                </div>
+		                
+		                <div class="label-divs">
+		                <!--Width drop down  -->
+		                <label>Width</label>
+		                <select name="widthvalue" id="width_value">
+		                  <option value="500">500</option>
+		                  <option value="600">600</option>
+		                  <option value="700">700</option>
+		                  <option value="800">800</option>
+		                  <option value="900">900</option>
+		                  <option value="1000">1000</option>
+		                  <option value="1100">1100</option>
+		                  <option value="1200">1200</option>
+		                </select><br />
+		                </div>
+		                
+		                	<div class="label-divs">
+		                <!--Width drop down  -->
+		                <label>Filter: </label>
+		                <select name="filter">
+		                  <option value="0">None</option>
+		                  <option value="1">Sepia</option>
+		                  <option value="2">Black & White</option>
+		                  <option value="3">Greyscale</option>
+		                </select><br />
+		                </div>
+		                
+		                <div class="label-divs">
+		                <!--Border checkbox  -->
+		                    <label>Border</label>
+		                <input type= "checkbox" id="border" name="border"/> <br />
+		                </div>
+		                
+		                <div class="label-divs">
+		                <label>Rotation</label>
+		                <input type= "checkbox" id="rotation" name="rotation"/> <br />
+		                </div>
+		                   
+		                <input type="submit" id="build-button" value="Build Collage"/>	                
+		            </form>
 	        </div>
 		</div>
     </body>

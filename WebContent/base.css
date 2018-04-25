@@ -3,7 +3,7 @@
 	font-family: 'Poppins', sans-serif;
 }
 
-button {
+button, .butt {
 	background-color: #A1A8AC;
     color: #F1F5F7; 
     border: 3px solid #a1a1a1;
@@ -14,7 +14,7 @@ button:hover:enabled {
     opacity: 0.8;
 }
 
- .wrapper {
+.wrapper {
 	background-color: #E1E6E9;
 	padding: 40px;
 	margin: auto;
