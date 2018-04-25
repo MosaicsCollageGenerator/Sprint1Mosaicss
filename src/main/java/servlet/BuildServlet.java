@@ -51,20 +51,20 @@ public class BuildServlet extends HttpServlet {
 		
 		int rotation = 0;
 		Boolean border = false;
-		if(request.getParameter("rotation")==null) {
+		if(request.getParameter("rotation").contains("false")) {
 			rotation = 0;
 		}
-		else if(request.getParameter("rotation").contains("on")){
+		else if(request.getParameter("rotation").contains("true")){
 			rotation = 365;
 		}
 		
-		if(request.getParameter("border")==null) {
+		if(request.getParameter("border").contains("false")) {
 			border = false;
 		}
-		else if(request.getParameter("border").contains("on")){
+		else if(request.getParameter("border").contains("true")){
 			border = true;
 		}
-
+		System.out.println("border: " + request.getParameter("border")+ " rotation: "+ request.getParameter("rotation"));
 		Boolean testing = false;
 
 		//int filter = 1;

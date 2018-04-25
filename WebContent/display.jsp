@@ -25,10 +25,10 @@
 						var width = $("#width_value").val();
 						var filter = $("#filter_value").val();
 						var border = $("#border_value").is(":checked");
-						var rotation = $("rotation_value").is(":checked");	
+						var rotation = $("#rotation_value").is(":checked");	
 						
 						var getRequest = "http://localhost:8080/Mosaicss/build?search_text=" + topic + "&shape_text=" + shape + "&heightvalue=" + height + "&widthvalue="
-								+ width + "&filter=0";
+								+ width + "&filter=" + filter + "&border=" + border + "&rotation=" + rotation; 
 						$.ajax({
 							url: getRequest,
 							success: function(result){
