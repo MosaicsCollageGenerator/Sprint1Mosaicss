@@ -1,10 +1,10 @@
 #index.html
 Given(/^I am on collage display page testing mainPage$/) do
-  visit "http:localhost:8080/Mosaicss/index.html"
+  visit "http:localhost:8080/Mosaicss/display.jsp"
   sleep 2
 end
 
-When("I am on collage builder page") do
+When("I am on collage display page") do
   
 end
 
@@ -20,9 +20,12 @@ end
 Then(/^I should see a width dropdown box$/) do
   page.find('#width_value')
 end
-Then(/^I should see filter radio buttons$/) do
-  page.assert_selector('[name=filter]', count: 4)
+Then(/^I should see a filter dropdown box$/) do
+  page.find('#filter_value')
 end
 Then(/^I should see a border checkbox$/)do
   page.find('#border')
+end
+Then(/^I should see a rotation checkbox$/)do
+  page.find('#rotation')
 end
