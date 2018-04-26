@@ -36,8 +36,7 @@
 								var imgString = $(htmlResult).find("#collage-pic");
 								$("#collage-div").empty();
 								$("#collage-div").append(imgString);
-							} 
-							
+							} 						
 						});
 					}
 	            });
@@ -65,8 +64,9 @@
 			function exportPdf() {
 				var options = $("#exportvalue");
 				var selected_option = $("#exportvalue option:selected").text();
-				if (selected_option === ".png") {
-					$('#hey').click();
+				if (selected_option === ".png ") {
+					/* $('#hey').click(); */
+					
 				} else {
 					var imgData;
 					html2canvas($("#collage-pic"), {
