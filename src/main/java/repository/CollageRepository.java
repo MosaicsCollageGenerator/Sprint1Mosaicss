@@ -99,16 +99,21 @@ public class CollageRepository {
 
     public Collage findByIdAndTitle(String id, String t) {
         Collage collage = null;
-        String sql = "SELECT * FROM Collage WHERE id='" + id + "' AND title='" + t + "'";
+        String sql = "SELECT * FROM Collage WHERE user_id='" + id + "' AND title='" + t + "'";
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
+        		System.out.println("I got into connection");
             // loop through the result set
             while (rs.next()) {
-                String title = rs.getString("username");
-                String src = rs.getString("password");
-                String user_id = rs.getString("user_id");
-                collage = new Collage(title, src, user_id);
+            		System.out.println("i found something in the database");
+                String title = rs.getString("title");
+                String src;
+                InputStream binaryStream = rs.getBinaryStream("src");
+                Scanner s = new Scanner(binaryStream);
+                src = s.hasNext() ? s.next() : "";
+                int user_id = rs.getInt("user_id");
+                collage = new Collage(title, src, Integer.toString(user_id));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -187,8 +192,8 @@ public class CollageRepository {
     public void deleteCollage(Collage collage) {
 //    	 	String sql = "SELECT * FROM Collage WHERE id='" + id + "'";
     		System.out.println("COllage: " + collage);
-    		System.out.println("ID: " +collage.getId());
-    		String sql = "DELETE FROM `Collage` WHERE id ='" + collage.getId()+ "'";
+    		System.out.println("ID: " +collage.getUserId());
+    		String sql = "DELETE FROM `Collage` WHERE user_id ='" + collage.getUserId()+ "'AND title='" +collage.getTitle() + "'";
     		System.out.println(sql);
     		try (Connection conn = this.connect();
     	             Statement stmt  = conn.createStatement())

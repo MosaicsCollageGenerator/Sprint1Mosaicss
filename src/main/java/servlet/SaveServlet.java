@@ -29,11 +29,11 @@ public class SaveServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		String title = (String) request.getParameter("topic");
-		String src = (String) request.getParameter("collage");
+		String title = (String) session.getAttribute("topic");
+		String src = (String) session.getAttribute("collage");
 		String user_id = (String) session.getAttribute("userID");
 		System.out.println("user id in saveservlet is: " +  user_id);
-		//System.out.println("THIS IS SESSION: " +title + " " + src + " " + user_id);
+		System.out.println("THIS IS SESSION: " +title + " " + src + " " + user_id);
 		CollageRepository users = new CollageRepository();
 		System.out.println("saving the collage");
 		System.out.println(src);

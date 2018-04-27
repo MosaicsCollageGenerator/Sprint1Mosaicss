@@ -156,15 +156,18 @@
     <body>
 			<%
 				if (session.getAttribute("collage") != null) {
+					System.out.println("HERE1");
 			%>
 					<div class="title" id="collage-title"> Collage for topic <%=(String)session.getAttribute("topic") %></div>
 			<% 		
 				} else {
 					if (collages != null && collages.size() > 0) {
+						System.out.println("HERE2");
 			%>
 					<div class="title" id="collage-title"> Collage for topic <%=titles.get(0)%></div>
 			<% 
 					} else {
+						System.out.println("HERE3");
 			%>
 					<div class="title" id="collage-title">Please build a collage <%=(String)session.getAttribute("username") %>!</div>
 			<%
@@ -276,7 +279,9 @@
     			</div>
 
     			<div class="buttons">
-				<button class = "display_button" id="save-button">Save to Gallery</button>
+    				<form id="saveform" method="GET" action="SaveServlet">
+					<button class = "display_button" id="save-button">Save to Gallery</button>
+				</form>
 				<form id="deleteform" method="GET" action="DeleteServlet">
 						<button class = "display_button" id="delete-button">Delete from Gallery</button>
 				</form>
@@ -312,7 +317,7 @@
 						previousCollages[i].onclick=function() {
 							// Grab src and alt
 							var previousTemp = previousCollages[i].src;
-							var previousAlt = previousCollages[i].alt;
+							var previousId = previousCollages[i].id;
 							for (j = i; j < previousCollages.length; j++) {
 								(function(j) {
 									// If last element in previous collages is clicked
@@ -332,6 +337,7 @@
 											// Change title
 											title.innerHTML = "Collage for topic " + previousAlt;
 											
+											
 											// Remove last img element if insufficient images found	
 											previousCollages[j].parentNode.removeChild(previousCollages[j]);
 											previousCollages = prev.getElementsByTagName("img");
@@ -344,20 +350,23 @@
 										// If there is a collage displayed
 										else {
 											// Swap source and alt
-											previousCollages[j].src = main.src;
-											previousCollages[j].alt = main.alt;
+/* 											previousCollages[j].src = main.src;
+											previousCollages[j].id = main.id; */
 											main.src = previousTemp;
-											main.alt = previousAlt;
+											main.id = previousId;
 											
 											// Change title
-											title.innerHTML = "Collage for topic " + previousCollagesAlt;
+											//title.innerHTML = "Collage for topic " + previousAlt;
+											console.log("previous collage: "+ previousId);
+											var title = document.querySelector("#collage-title");
+											title.innerHTML = "Topic for "+ previousId;
 										}
 									}
 									// If not last element
 									else {
 										// Swap source and alt
-										previousCollages[j].src = previousCollages[j+1].src;
-										previousCollages[j].alt = previousCollages[j+1].alt;
+										/* previousCollages[j].src = previousCollages[j+1].src;
+										previousCollages[j].alt = previousCollages[j+1].alt; */
 									}
 								})(j);
 							}

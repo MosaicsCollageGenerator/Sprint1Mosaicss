@@ -26,7 +26,7 @@ public class DeleteServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
-		String title = (String) request.getAttribute("topic");
+		String title = (String) session.getAttribute("topic");
 		String user_id = (String) session.getAttribute("userID");
 		System.out.println("user id in saveservlet is: " +  user_id);
 		System.out.println("title: " + title);
@@ -42,6 +42,7 @@ public class DeleteServlet extends HttpServlet {
 //	    }
 		Collage c = users.findByIdAndTitle(user_id, title);
 		System.out.println("IN DELETE SERVLET: COLLAGE IS " + c);
+		System.out.println("collage is: "+ c.getUserId()+ " "+ c.getTitle() );
 		users.deleteCollage(c);
 		System.out.println("FINISHED Deleting");
 		CollageRepository cr = new CollageRepository();
@@ -51,10 +52,17 @@ public class DeleteServlet extends HttpServlet {
 		for (Collage co : collages) {
 			collages_src.add(co.getSrc());
 			titles.add(co.getTitle());
+			System.out.println("titles are: "+ co.getTitle());
 		}
 		
 		session.setAttribute("collages", collages_src);
 		session.setAttribute("titles", titles);
+		if(!collages_src.isEmpty()) {
+			session.setAttribute("collage", collages_src.get(collages_src.size()-1));
+			session.setAttribute("topic", titles.get(titles.size()-1));
+			System.out.println("this is the topic: "+titles.get(titles.size()-1));
+		}
+		
 		request.getRequestDispatcher("/display.jsp").forward(request, response);
 	}
 
