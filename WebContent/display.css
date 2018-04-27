@@ -80,3 +80,8 @@
 body {
 	margin: 0;
 }
+
+
+.display_button {
+	display:inline-block;
+}

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.util.ArrayList" %>
+    <%@ page import="java.util.ArrayList, main.java.model.Collage" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,6 +37,51 @@
 								$("#collage-div").empty();
 								$("#collage-div").append(imgString);
 							} 						
+						});
+					}
+	            });
+	            
+	            $(".display_button").click(function(){
+	            	// this is save_button
+	            		var topic = document.getElementById("collage-pic").className;
+	            		var src = document.getElementById("collage-pic").src;
+	            		var getRequest = "http://localhost:8080/Mosaicss/build?search_text=" + topic + "&shape_text=" + shape + "&heightvalue=" + height + "&widthvalue="
+						+ width + "&filter=" + filter + "&border=" + border + "&rotation=" + rotation; 
+					$.ajax({
+						url: getRequest,
+						success: function(result){
+							var htmlResult = $.parseHTML(result);
+							var imgString = $(htmlResult).find("#collage-pic");
+							$("#collage-div").empty();
+							$("#collage-div").append(imgString);
+						} 
+						
+					});
+	            });
+	            
+	            $("#delete-button").click(function(){
+					if(validateForms()){
+						// get title/id from main displayed image
+						$("#collage-title").text("Collage for topic " + $("#search_text").val());
+						var topic = $("#collage-title").val(); 
+						var shape = $("#shape_text").val();
+						var height = $("#height_value").val();
+						var width = $("#width_value").val();
+						var filter = $("#filter_value").val();
+						var border = $("#border_value").is(":checked");
+						var rotation = $("#rotation_value").is(":checked");	
+						
+						var getRequest = "http://localhost:8080/Mosaicss/DeleteServlet?topic=" + topic + "&shape_text=" + shape + "&heightvalue=" + height + "&widthvalue="
+								+ width + "&filter=" + filter + "&border=" + border + "&rotation=" + rotation; 
+						$.ajax({
+							url: getRequest,
+							success: function(result){
+								var htmlResult = $.parseHTML(result);
+								var imgString = $(htmlResult).find("#collage-pic");
+								$("#collage-div").empty();
+								$("#collage-div").append(imgString);
+							} 
+							
 						});
 					}
 	            });
@@ -87,19 +132,22 @@
         </script>
         <script type="text/javascript">
 	        function changeDisplayedImage(i) {
-	        		
-				newImage = (document.getElementByClassName(".\\"+ i)).src;
+	        		var num = i.toString();
+				newImage = (document.getElementsByClassName(num)).src;
 				
 				document.querySelector('#collage-pic').src = newImage;
-				
-				newTopic = document.getElementByClassName(".\\"+i).id;
+				newTopic = document.getElementsByClassName(num).id;
+				/* newTopic = document.getElementsByClassName(".\\"+i).id; */
 				
 				document.querySelector('.title').innerHTML = newTopic;
+				
+				console.log(num)
 			}
         </script>
         <%
         ArrayList<String> collages = ((ArrayList<String>) session.getAttribute("collages"));
         ArrayList<String> titles = ((ArrayList<String>) session.getAttribute("titles"));
+        ArrayList<Collage> collages_class = ((ArrayList<Collage>) session.getAttribute("collages_classes"));
         %>
     </head>
 
@@ -202,7 +250,7 @@
     							} else {
     								if (collages != null && collages.size() > 0) {
     						%>
-    								<img id="collage-pic" src="data:image/png;base64, <%=collages.get(0)%>" >
+    								<img class="<%=collages_class.get(0).getTitle()%>" id="collage-pic" src="data:image/png;base64, <%=collages.get(0)%>" >
     						<% 
     								} else {
     						%>
@@ -226,12 +274,14 @@
     			</div>
 
     			<div class="buttons">
-    				<form id="saveform" method="GET" action="SaveServlet">
-					<button id="save-button">Save to Gallery</button>
+				<button class = "display_button" id="save-button">Save to Gallery</button>
+				<form id="deleteform" method="GET" action="DeleteServlet">
+						<button class = "display_button" id="delete-button">Delete from Gallery</button>
 				</form>
     				<button id="build-another-button" onclick="location.href='display.jsp'" hidden>Build Another Collage</button>
     			</div>
-
+  
+    			
     			<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
 			<a id="export-button-png" download="collage.png" href="data:image/png;base64, <%=(String)session.getAttribute("collage")%>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
 			<div id="gallery-title">Gallery:</div>
