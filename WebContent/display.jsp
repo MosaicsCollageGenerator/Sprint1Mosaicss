@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MOSAICS</title>
         <link rel="stylesheet" type="text/css" href="base.css?v=3">
-        <link rel="stylesheet" type="text/css" href="display.css?v=2">
+        <link rel="stylesheet" type="text/css" href="display.css?v=3">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -66,12 +66,9 @@
 				var selected_option = $("#exportvalue option:selected").text();
 				if (selected_option === ".png ") {
 					var imgSrc = document.getElementById("collage-pic").src;
-					console.log(imgSrc);
-					//document.getElementyById("export-button-png").href = imgSrc;
 					var a = document.getElementById("export-button-png");
 					a.href = imgSrc
 					$('#hey').click();
-					//$('#export-button-png').attr('href') = imgSrc;
 					
 				} else {
 					var imgData;
