@@ -1,4 +1,4 @@
-Given(/^I am on collage main page$/) do
+Given(/^I am on collage display page$/) do
 	visit "http:localhost:8080/Mosaicss/login.jsp"
 	fill_in('username', :with => 'test')
 	fill_in('password', :with=> 'test')

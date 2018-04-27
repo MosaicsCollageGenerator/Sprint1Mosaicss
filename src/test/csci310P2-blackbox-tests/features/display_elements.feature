@@ -16,5 +16,23 @@ Scenario: Button is labeled with text "Export Collage"
 	
 	Then the value of the button is "Export Collage"
 
+Scenario: Topic label
+	Then the value of the label is topic
 
+Scenario: Shape label
+	Then the value of the label is shape
 
+Scenario: Height label
+	Then the value of the label is height
+
+Scenario: Width label
+	Then the value of the label is width
+
+Scenario: Filter label
+	Then the value of the label is filter
+
+Scenario: Border label
+	Then the value of the label is border
+
+Scenario: Rotation label
+	Then the value of the label is rotation
