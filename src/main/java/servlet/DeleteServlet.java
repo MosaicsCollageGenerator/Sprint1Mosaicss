@@ -14,33 +14,36 @@ import main.java.model.Collage;
 import main.java.repository.CollageRepository;
 
 /**
- * Servlet implementation class SaveServlet
+ * Servlet implementation class DeleteServlet
  */
-@WebServlet("/SaveServlet")
-public class SaveServlet extends HttpServlet {
+@WebServlet("/DeleteServlet")
+public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+       
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		String username = request.getParameter("username");
 //		String password = request.getParameter("password");
 		
 		HttpSession session = request.getSession();
 		
-		String title = (String) request.getParameter("topic");
-		String src = (String) request.getParameter("collage");
+		String title = (String) request.getAttribute("topic");
 		String user_id = (String) session.getAttribute("userID");
 		System.out.println("user id in saveservlet is: " +  user_id);
+		System.out.println("title: " + title);
 		//System.out.println("THIS IS SESSION: " +title + " " + src + " " + user_id);
 		CollageRepository users = new CollageRepository();
-		System.out.println("saving the collage");
-		System.out.println(src);
-		Collage c = new Collage(title,src,user_id);
-		
-		users.saveCollage(c);
-		System.out.println("FINISHED SAVING");
+		System.out.println("deleting the collage");
+//		Collage c = new Collage(title,src,user_id);
+//		public Collage(String id, String title, String src, String user_id) {
+//	        this.id = id;
+//	        this.title = title;
+//	        this.src = src;
+//	        this.user_id = user_id;
+//	    }
+		Collage c = users.findByIdAndTitle(user_id, title);
+		System.out.println("IN DELETE SERVLET: COLLAGE IS " + c);
+		users.deleteCollage(c);
+		System.out.println("FINISHED Deleting");
 		CollageRepository cr = new CollageRepository();
 		ArrayList<Collage> collages = (ArrayList<Collage>) cr.getAllCollageFromUser(user_id);
 		ArrayList<String> collages_src = new ArrayList<>();
@@ -54,8 +57,6 @@ public class SaveServlet extends HttpServlet {
 		session.setAttribute("titles", titles);
 		request.getRequestDispatcher("/display.jsp").forward(request, response);
 	}
-
-
 
 
 }

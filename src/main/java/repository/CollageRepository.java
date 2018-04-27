@@ -97,9 +97,33 @@ public class CollageRepository {
         return collage;
     }
 
+    public Collage findByIdAndTitle(String id, String t) {
+        Collage collage = null;
+        String sql = "SELECT * FROM Collage WHERE id='" + id + "' AND title='" + t + "'";
+        try (Connection conn = this.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+            // loop through the result set
+            while (rs.next()) {
+                String title = rs.getString("username");
+                String src = rs.getString("password");
+                String user_id = rs.getString("user_id");
+                collage = new Collage(title, src, user_id);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        if (collage == null) {
+        		System.out.println("I FOUND NO COLLAGE");
+        } else {
+        		System.out.println("Collage " + collage.getTitle() + " found");
+        }
+        return collage;
+    }
+    
     public List<Collage> getAllCollageFromUser(String user_id) {
         List<Collage> allCollage = new ArrayList<>();
-        String sql = "SELECT * FROM Collage WHERE user_id='" + user_id+ "'";;
+        String sql = "SELECT * FROM Collage WHERE user_id='" + user_id+ "'";
         try (Connection conn = this.connect();
              Statement stmt  = conn.createStatement();
              ResultSet rs    = stmt.executeQuery(sql)){
@@ -158,6 +182,21 @@ public class CollageRepository {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+    
+    public void deleteCollage(Collage collage) {
+//    	 	String sql = "SELECT * FROM Collage WHERE id='" + id + "'";
+    		System.out.println("COllage: " + collage);
+    		System.out.println("ID: " +collage.getId());
+    		String sql = "DELETE FROM `Collage` WHERE id ='" + collage.getId()+ "'";
+    		System.out.println(sql);
+    		try (Connection conn = this.connect();
+    	             Statement stmt  = conn.createStatement())
+    	              {
+    	                  stmt.execute(sql);
+    	        } catch (SQLException e) {
+    	            System.out.println(e.getMessage());
+    	        }
     }
 
     public void resetDatabase() {
