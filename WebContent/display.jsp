@@ -65,7 +65,13 @@
 				var options = $("#exportvalue");
 				var selected_option = $("#exportvalue option:selected").text();
 				if (selected_option === ".png ") {
-					/* $('#hey').click(); */
+					var imgSrc = document.getElementById("collage-pic").src;
+					console.log(imgSrc);
+					//document.getElementyById("export-button-png").href = imgSrc;
+					var a = document.getElementById("export-button-png");
+					a.href = imgSrc
+					$('#hey').click();
+					//$('#export-button-png').attr('href') = imgSrc;
 					
 				} else {
 					var imgData;
@@ -230,8 +236,7 @@
     			</div>
 
     			<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
-			<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
-
+			<a id="export-button-png" download="collage.png" href="data:image/png;base64, <%=(String)session.getAttribute("collage")%>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
 			<div id="gallery-title">Gallery:</div>
 
 			<div class="gallery" id = galleryTable>
@@ -240,13 +245,10 @@
 					    	for(int i = 0; i < ((ArrayList<String>)session.getAttribute("collages")).size(); i+=1) { 
 					    		
 					    	%>
-				        	<img id=<%=titles.get(i)%> class=<%=i%> width="100" height="100" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(i) %>" onclick=changeDisplayedImage(<%=i%>)>
+				        	<img id=<%=titles.get(i)%> class=<%=i%> width="100" height="100" src="data:image/png;base64,<%=((ArrayList<String>)session.getAttribute("collages")).get(i)%>" onclick=changeDisplayedImage(<%=i%>)>
 				    			<% } 	
 				    }
 					    %>
 			</div>
-
-		<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
-		<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
     </body>
 </html>
