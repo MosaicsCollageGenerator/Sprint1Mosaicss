@@ -1,14 +1,9 @@
 #display.html
 Given(/^I am on collage export page$/) do
 	visit "http:localhost:8080/Mosaicss/login.jsp"
-	fill_in('username', :with => 'halfond')
-	fill_in('password', :with=> 'password')
+	fill_in('username', :with => 'test')
+	fill_in('password', :with=> 'test')
 	click_button("Login")
-	click_button("See Collage History")
-end
-
-When(/^I am on the collage display page$/) do
-
 end
 
 
