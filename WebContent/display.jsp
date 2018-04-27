@@ -129,6 +129,8 @@
 	                });
 				}
 			}
+			
+			
         </script>
         <script type="text/javascript">
 	        function changeDisplayedImage(i) {
@@ -297,5 +299,72 @@
 				    }
 					    %>
 			</div>
+			
+			<script type = "text/javascript">
+			var prev = document.querySelector("#galleryTable"); // Grabs title html object
+			var previousCollages = prev.getElementsByTagName("img");
+			var main = document.querySelector("#collage-pic");
+			prev.onclick = swapCollages();
+			function swapCollages() {
+				// For every previous collage element
+				for (i = 0; i < previousCollages.length; i++) {
+					(function(i) {
+						previousCollages[i].onclick=function() {
+							// Grab src and alt
+							var previousTemp = previousCollages[i].src;
+							var previousAlt = previousCollages[i].alt;
+							for (j = i; j < previousCollages.length; j++) {
+								(function(j) {
+									// If last element in previous collages is clicked
+									if (j == previousCollages.length-1) {
+										// If no collage is currently displayed
+										if (document.querySelector("#error")!=null) {
+											// Move clicked image to main collage space										
+											var newImage = document.createElement("img");
+											newImage.id = "main";
+											newImage.src = previousTemp;
+											newImage.alt = previousAlt;
+											
+											// Replace collage main space inner HTML with newImage
+											collage.innerHTML = "";
+											collage.appendChild(newImage);
+											
+											// Change title
+											title.innerHTML = "Collage for topic " + previousAlt;
+											
+											// Remove last img element if insufficient images found	
+											previousCollages[j].parentNode.removeChild(previousCollages[j]);
+											previousCollages = prev.getElementsByTagName("img");
+											main = document.querySelector("#main");
+											
+											// Disable export button if current collage is empty
+											exportButton.disabled = false;
+											fail = false;
+										}
+										// If there is a collage displayed
+										else {
+											// Swap source and alt
+											previousCollages[j].src = main.src;
+											previousCollages[j].alt = main.alt;
+											main.src = previousTemp;
+											main.alt = previousAlt;
+											
+											// Change title
+											title.innerHTML = "Collage for topic " + previousCollagesAlt;
+										}
+									}
+									// If not last element
+									else {
+										// Swap source and alt
+										previousCollages[j].src = previousCollages[j+1].src;
+										previousCollages[j].alt = previousCollages[j+1].alt;
+									}
+								})(j);
+							}
+						}
+					})(i);
+				}
+			}
+			</script>
     </body>
 </html>
