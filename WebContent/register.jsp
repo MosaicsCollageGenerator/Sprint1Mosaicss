@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Create Account</title>
         <link rel="stylesheet" type="text/css" href="base.css?v=2">
-        <link rel="stylesheet" type="text/css" href="register.css?v=2">
+        <link rel="stylesheet" type="text/css" href="register.css?v=1">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 </head>
 <body>
@@ -28,7 +28,7 @@
                             <input class="input" placeholder="Enter username" type="text" name="username" align="center" /><br>
                             
                             <label for="password"><b>Create password: </b></label>
-                            <input class="input" placeholder="Enter password" type="text" name="password"/><br>               
+                            <input class="input" placeholder="Enter password" type="password" name="password"/><br>               
                         </div>
                         <input id="register-button" type = "submit" name="submit" value=Register>
                     </form>  

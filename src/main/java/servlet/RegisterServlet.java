@@ -37,26 +37,31 @@ public class RegisterServlet extends HttpServlet {
 		String hashedPassword = AuthenticationService.hashPassword(password);
 		UserRepository users = new UserRepository();
 		User currentUser = users.findByUsername(username);
-		
+		System.out.println("here1");
 		HttpSession session = request.getSession();
 		if(currentUser != null) {
+			System.out.println("here2");
 			session.setAttribute("registerError", "Username taken");
 			request.getRequestDispatcher("/register.jsp").forward(request, response);
 			
 		} else {
+			System.out.println("here3");
 			User newUser = new User(Integer.toString(users.getNumUsers()),username,hashedPassword);
 			users.saveUser(newUser);
 			session.setAttribute("userID", newUser.getId());
 			//HttpSession session = request.getSession();
 			if(newUser != null) {
+				System.out.println("here4");
 				session.setAttribute("userID", newUser.getId());
 				session.setAttribute("username", newUser.getUsername());
 				session.setAttribute("errorMessage", "");
-				request.getRequestDispatcher("/options.jsp").forward(request, response);
+				request.getRequestDispatcher("/display.jsp").forward(request, response);
+				return;
 			} 
+			System.out.println("here5");
 			session.setAttribute("registerError", "");
 			session.setAttribute("errorMessage", "");
-			request.getRequestDispatcher("/options.jsp").forward(request, response);
+			request.getRequestDispatcher("/display.jsp").forward(request, response);
 			response.getWriter().append("Served at: ").append(request.getContextPath());
 		}
 	}
