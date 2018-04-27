@@ -20,6 +20,8 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -430,6 +432,23 @@ public class CollageBuilder {
             images = ImageService.getTestImages();
         } else {
             images = ImageService.getImages(topic);
+        }
+        if(images.size()>30) {
+        		URL imageURL = null;
+				try {
+					imageURL = new URL("http://www.vishmax.com/en/innovattive-cms/themes/themax-theme-2015/images/no-image-found.gif");
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        		BufferedImage collage = null;
+				try {
+					collage = (BufferedImage) ImageIO.read(imageURL.openStream());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+        		return collage;
         }
 
         // Apply border to images

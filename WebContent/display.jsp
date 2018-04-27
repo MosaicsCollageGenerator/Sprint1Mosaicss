@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MOSAICS</title>
         <link rel="stylesheet" type="text/css" href="base.css?v=3">
-        <link rel="stylesheet" type="text/css" href="display.css?v=2">
+        <link rel="stylesheet" type="text/css" href="display.css?v=3">
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -36,8 +36,7 @@
 								var imgString = $(htmlResult).find("#collage-pic");
 								$("#collage-div").empty();
 								$("#collage-div").append(imgString);
-							} 
-							
+							} 						
 						});
 					}
 	            });
@@ -110,8 +109,12 @@
 			function exportPdf() {
 				var options = $("#exportvalue");
 				var selected_option = $("#exportvalue option:selected").text();
-				if (selected_option === ".png") {
+				if (selected_option === ".png ") {
+					var imgSrc = document.getElementById("collage-pic").src;
+					var a = document.getElementById("export-button-png");
+					a.href = imgSrc
 					$('#hey').click();
+					
 				} else {
 					var imgData;
 					html2canvas($("#collage-pic"), {
@@ -280,8 +283,7 @@
   
     			
     			<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
-			<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
-
+			<a id="export-button-png" download="collage.png" href="data:image/png;base64, <%=(String)session.getAttribute("collage")%>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
 			<div id="gallery-title">Gallery:</div>
 
 			<div class="gallery" id = galleryTable>
@@ -290,13 +292,10 @@
 					    	for(int i = 0; i < ((ArrayList<String>)session.getAttribute("collages")).size(); i+=1) { 
 					    		
 					    	%>
-				        	<img id=<%=titles.get(i)%> class=<%=i%> width="100" height="100" src="data:image/png;base64, <%=((ArrayList<String>)session.getAttribute("collages")).get(i) %>" onclick=changeDisplayedImage(<%=i%>)>
+				        	<img id=<%=titles.get(i)%> class=<%=i%> width="100" height="100" src="data:image/png;base64,<%=((ArrayList<String>)session.getAttribute("collages")).get(i)%>" onclick=changeDisplayedImage(<%=i%>)>
 				    			<% } 	
 				    }
 					    %>
 			</div>
-
-		<button id="hey" onclick="document.getElementById('export-button-png').click()" hidden>DO NOT DELETE</button>
-		<a id="export-button-png" download="collage.png" href="data:image/pdf;base64, <%=(String)session.getAttribute("collage") %>" hidden><input id="export-button" type="submit" value="Export Collage" ></a>
     </body>
 </html>
